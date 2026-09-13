@@ -3,12 +3,14 @@
 -- Input mapping
 -- in1: staircase timer sunrise active (1/true)
 -- in2: staircase timer sunset active (1/true)
--- in3: cyclic trigger (every 5 seconds)
+-- in3: cyclic trigger (every second, synchronized with in9/in10); color is recalculated every CALC_INTERVAL_SECONDS
 -- in4: twilight duration in minutes (e.g. 45)
 -- in5: presence trigger corridor (Flur)
 -- in6: presence trigger living room (Wohnzimmer)
 -- in7: automatic light system enabled; if AUTO_ENABLE_ACTIVE_LOW=true then 0 means unlocked/enabled
 -- in8: weather signal (OpenWeather JSON body or weather main string)
+-- in9: current hour of day (0-23)
+-- in10: current minute of day (0-59)
 --
 -- Output mapping
 -- out1: absolute color temperature in Kelvin (central MDT DALI object)
@@ -25,7 +27,8 @@ local STEP_KELVIN = 5
 local CURVE_STRENGTH_SUNRISE = 16
 local CURVE_STRENGTH_SUNSET = 16
 local DEFAULT_DURATION_MIN = 45
-local TICK_SECONDS = 5
+local TICK_SECONDS = 1
+local CALC_INTERVAL_SECONDS = 5
 local SEND_DELTA_KELVIN = 10
 
 local STATE_KEY_PREFIX = "tw_"
@@ -171,7 +174,6 @@ end
 
 local function save_state(st, props)
   prop_set(props, "mode", st.mode)
-  prop_set(props, "start_ts", st.start_ts)
   prop_set(props, "duration_s", st.duration_s)
   prop_set(props, "start_k", st.start_k)
   prop_set(props, "target_k", st.target_k)
@@ -184,6 +186,7 @@ local function save_state(st, props)
   prop_set(props, "prev_presence_wohn", st.prev_presence_wohn)
   prop_set(props, "prev_auto_enabled", st.prev_auto_enabled)
   prop_set(props, "prev_tick_active", st.prev_tick_active)
+  prop_set(props, "calc_accum_s", st.calc_accum_s)
 end
 
 local function load_state(props)
@@ -193,7 +196,6 @@ local function load_state(props)
     st.mode = "idle"
   end
 
-  st.start_ts = as_number(prop_get(props, "start_ts", 0), 0)
   st.duration_s = as_number(prop_get(props, "duration_s", DEFAULT_DURATION_MIN * 60), DEFAULT_DURATION_MIN * 60)
   st.start_k = as_number(prop_get(props, "start_k", NIGHT_KELVIN), NIGHT_KELVIN)
   st.target_k = as_number(prop_get(props, "target_k", DAY_KELVIN), DAY_KELVIN)
@@ -206,6 +208,7 @@ local function load_state(props)
   st.prev_presence_wohn = as_bool(prop_get(props, "prev_presence_wohn", false))
   st.prev_auto_enabled = as_bool(prop_get(props, "prev_auto_enabled", false))
   st.prev_tick_active = as_bool(prop_get(props, "prev_tick_active", false))
+  st.calc_accum_s = as_number(prop_get(props, "calc_accum_s", 0), 0)
 
   st.duration_s = math.max(60, math.floor(st.duration_s + 0.5))
   st.start_k = normalize_kelvin(st.start_k, NIGHT_KELVIN)
@@ -214,6 +217,7 @@ local function load_state(props)
   st.last_sent_k = clamp(st.last_sent_k, 0, MAX_KELVIN)
   st.last_weather_day_k = normalize_kelvin(st.last_weather_day_k, DAY_KELVIN)
   st.elapsed_s = math.max(0, st.elapsed_s)
+  st.calc_accum_s = clamp(st.calc_accum_s, 0, CALC_INTERVAL_SECONDS - 1)
 
   return st
 end
@@ -238,18 +242,14 @@ local function curve_value(progress, mode, strength)
   return p
 end
 
-local function initial_kelvin_for_now(fallback_kelvin, day_peak_kelvin)
-  local now = BT:time()
-  if now == nil then
-    return fallback_kelvin
+local function initial_kelvin_for_now(day_peak_kelvin, hour_in, minute_in)
+  -- day of year is not delivered as an input, so it still comes from the local system clock
+  local dt = os.date("*t")
+  if dt == nil or dt.yday == nil then
+    return nil
   end
 
-  local dt = os.date("*t", now)
-  if dt == nil or dt.yday == nil or dt.hour == nil then
-    return fallback_kelvin
-  end
-
-  local hour = dt.hour + (dt.min or 0) / 60 + (dt.sec or 0) / 3600
+  local hour = hour_in + minute_in / 60
   local season = 0.5 + 0.5 * math.cos((2 * math.pi * (dt.yday - 172)) / 365)
 
   local dawn_hour = 8.0 - 3.0 * season
@@ -269,22 +269,14 @@ local function initial_kelvin_for_now(fallback_kelvin, day_peak_kelvin)
 
   local kelvin = NIGHT_KELVIN + (seasonal_day_peak - NIGHT_KELVIN) * (brightness ^ 0.85)
 
-  return normalize_kelvin(kelvin, fallback_kelvin)
+  return normalize_kelvin(kelvin, day_peak_kelvin)
 end
 
 local function current_kelvin_for_state(st, tick_event)
-  local elapsed = 0
-  local now = BT:time()
-
-  if now ~= nil and st.start_ts > 0 then
-    elapsed = math.max(0, now - st.start_ts)
-    st.elapsed_s = elapsed
-  else
-    if tick_event then
-      st.elapsed_s = st.elapsed_s + TICK_SECONDS
-    end
-    elapsed = st.elapsed_s
+  if tick_event then
+    st.elapsed_s = st.elapsed_s + CALC_INTERVAL_SECONDS
   end
+  local elapsed = st.elapsed_s
 
   local progress = clamp(elapsed / st.duration_s, 0, 1)
   local curve_strength = CURVE_STRENGTH_SUNSET
@@ -327,20 +319,12 @@ local function begin_ramp(st, mode, duration_s, weather_main, weather_day_k)
     tw_log("Sonnenuntergang gestartet (Ist-Start): " .. tostring(st.start_k) .. " K -> " .. tostring(st.target_k) .. " K (Wetter: " .. tostring(effective_weather_main) .. ")")
   end
 
-  local now = BT:time()
-  if now ~= nil then
-    st.start_ts = now
-  else
-    st.start_ts = 0
-  end
-
   st.last_k = st.start_k
 end
 
 local function finalize_ramp(st)
   st.last_k = st.target_k
   st.mode = "idle"
-  st.start_ts = 0
   st.elapsed_s = 0
   tw_log("Rampe beendet bei " .. tostring(st.target_k) .. " K")
 end
@@ -353,6 +337,8 @@ local in5 = BT:getInValue("in5")
 local in6 = BT:getInValue("in6")
 local in7 = BT:getInValue("in7")
 local in8 = BT:getInValue("in8")
+local in9 = BT:getInValue("in9")
+local in10 = BT:getInValue("in10")
 
 local sunrise_active = as_bool(in1)
 local sunset_active = as_bool(in2)
@@ -369,11 +355,22 @@ local duration_min = as_number(in4, DEFAULT_DURATION_MIN)
 duration_min = clamp(duration_min, 1, 240)
 local duration_s = math.floor(duration_min * 60 + 0.5)
 
+local current_hour = clamp(math.floor(as_number(in9, 0)), 0, 23)
+local current_minute = clamp(math.floor(as_number(in10, 0)), 0, 59)
+
 local props = BT:getProperties()
 local st = load_state(props)
 
 local tick_rising = tick_active and (not st.prev_tick_active)
-local tick_event = tick_rising
+-- in3 ticks every second; color changes are only computed every CALC_INTERVAL_SECONDS
+local tick_event = false
+if tick_rising then
+  st.calc_accum_s = st.calc_accum_s + TICK_SECONDS
+  if st.calc_accum_s >= CALC_INTERVAL_SECONDS then
+    st.calc_accum_s = st.calc_accum_s - CALC_INTERVAL_SECONDS
+    tick_event = true
+  end
+end
 
 local weather_main = normalize_weather_main(in8, st.last_weather_main)
 local weather_day_k = weather_day_kelvin(weather_main)
@@ -391,8 +388,10 @@ local send_kelvin_flur = nil
 
 local presence_flur_rising = presence_flur and (not st.prev_presence_flur)
 local presence_wohn_rising = presence_wohn and (not st.prev_presence_wohn)
+local presence_flur_falling = (not presence_flur) and st.prev_presence_flur
+local presence_wohn_falling = (not presence_wohn) and st.prev_presence_wohn
+local presence_falling = presence_flur_falling or presence_wohn_falling
 local presence_trigger = presence_flur_rising or presence_wohn_rising
-local auto_enabled_rising = auto_enabled and (not st.prev_auto_enabled)
 
 if sunrise_active and sunset_active then
   tw_log("Konflikt: Sonnenaufgang und Sonnenuntergang gleichzeitig aktiv, keine Ausgabe")
@@ -406,34 +405,34 @@ if sunrise_active and sunset_active then
 end
 
 if st.last_sent_k == 0 and st.mode == "idle" and (not sunrise_active) and (not sunset_active) then
-  local initial_kelvin = initial_kelvin_for_now(NIGHT_KELVIN, weather_day_k)
-  send_kelvin = initial_kelvin
-  force_send = true
-  st.last_k = initial_kelvin
-  tw_log("Initialisierung bei Deployment, zentral " .. tostring(initial_kelvin) .. " K")
+  local initial_kelvin = initial_kelvin_for_now(weather_day_k, current_hour, current_minute)
+  if initial_kelvin ~= nil then
+    send_kelvin = initial_kelvin
+    force_send = true
+    st.last_k = initial_kelvin
+    tw_log("Initialisierung bei Deployment, zentral " .. tostring(initial_kelvin) .. " K")
+  else
+    tw_log("Initialisierung übersprungen, keine gültige Uhrzeit")
+  end
 end
 
 if sunrise_active and st.mode ~= "sunrise" then
   begin_ramp(st, "sunrise", duration_s, weather_main, weather_day_k)
 elseif sunset_active and st.mode ~= "sunset" then
   begin_ramp(st, "sunset", duration_s, weather_main, weather_day_k)
-elseif (not sunrise_active) and (not sunset_active) and st.mode ~= "idle" then
+elseif (not sunrise_active) and (not sunset_active) and st.mode ~= "idle" and (not presence_falling) then
   send_kelvin = st.target_k
   force_send = true
   tw_log("Zentral " .. tostring(st.target_k) .. " K")
   finalize_ramp(st)
 end
 
-if st.mode ~= "idle" and (tick_event or sunrise_active or sunset_active or presence_trigger or auto_enabled_rising) then
+if (not presence_falling) and st.mode ~= "idle" and (tick_event or sunrise_active or sunset_active or presence_trigger) then
   local current_kelvin, progress = current_kelvin_for_state(st, tick_event)
 
   st.last_k = current_kelvin
 
-  if auto_enabled_rising then
-    send_kelvin = current_kelvin
-    force_send = true
-    tw_log("Automatik aktiviert, zentraler aktueller Rampenwert " .. tostring(current_kelvin) .. " K gesendet")
-  elseif presence_flur_rising then
+  if presence_flur_rising then
     send_kelvin = current_kelvin
     send_kelvin_flur = current_kelvin
     force_send = true
@@ -454,23 +453,21 @@ if st.mode ~= "idle" and (tick_event or sunrise_active or sunset_active or prese
     end
     finalize_ramp(st)
   end
-elseif auto_enabled_rising and st.mode == "idle" then
-  local resend_kelvin = initial_kelvin_for_now(st.last_k, weather_day_k)
-  resend_kelvin = normalize_kelvin(resend_kelvin, NIGHT_KELVIN)
+elseif st.mode == "idle" and auto_enabled and tick_event and (not presence_falling) then
+  local follow_kelvin = initial_kelvin_for_now(weather_day_k, current_hour, current_minute)
+  if follow_kelvin ~= nil then
+    follow_kelvin = normalize_kelvin(follow_kelvin, NIGHT_KELVIN)
+    st.last_k = follow_kelvin
 
-  send_kelvin = resend_kelvin
-  force_send = true
-  st.last_k = resend_kelvin
-  tw_log("Automatik aktiviert ohne aktive Rampe, zentral " .. tostring(resend_kelvin) .. " K gesendet")
-elseif st.mode == "idle" and auto_enabled and tick_event then
-  local follow_kelvin = initial_kelvin_for_now(st.last_k, weather_day_k)
-  follow_kelvin = normalize_kelvin(follow_kelvin, NIGHT_KELVIN)
-  st.last_k = follow_kelvin
-
-  if should_send_delta(st.last_sent_k, follow_kelvin) then
-    send_kelvin = follow_kelvin
-    tw_log("Idle Tick, zentral " .. tostring(follow_kelvin) .. " K")
+    if should_send_delta(st.last_sent_k, follow_kelvin) then
+      send_kelvin = follow_kelvin
+      tw_log("Idle Tick, zentral " .. tostring(follow_kelvin) .. " K")
+    end
+  else
+    tw_log("Idle Tick übersprungen, keine gültige Uhrzeit")
   end
+elseif presence_falling then
+  tw_log("Präsenz AUS erkannt, keine Farbänderung")
 elseif presence_trigger and st.mode == "idle" and RESEND_LAST_ON_PRESENCE_IDLE then
   local resend_kelvin = st.last_k
   if resend_kelvin == nil or resend_kelvin == 0 then
@@ -489,14 +486,14 @@ elseif presence_trigger and st.mode == "idle" and RESEND_LAST_ON_PRESENCE_IDLE t
   force_send = true
 end
 
-if send_kelvin ~= nil then
+if send_kelvin ~= nil and (not presence_falling) then
   if force_send or should_send_delta(st.last_sent_k, send_kelvin) then
     BT:sendValue("out1", send_kelvin)
     st.last_sent_k = send_kelvin
   end
 end
 
-if send_kelvin_flur ~= nil then
+if send_kelvin_flur ~= nil and (not presence_falling) then
   BT:sendValue("out2", send_kelvin_flur)
 end
 

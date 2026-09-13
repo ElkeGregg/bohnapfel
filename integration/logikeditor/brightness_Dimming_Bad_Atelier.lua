@@ -18,31 +18,12 @@ local EVENING_START_HOUR = 21
 local EVENING_START_MIN = 30
 local BAD_EVENING_CAP_PERCENT = 60
 
-local NIGHT_START_HOUR = 0
-local NIGHT_START_MIN = 0
-local NIGHT_DESCENT_MIN = 30
-local NIGHT_HOLD_UNTIL_HOUR = 5
-local NIGHT_HOLD_UNTIL_MIN = 30
-local NIGHT_TARGET_PERCENT = 5
-
-local AT_LED_STRIP_EVENING_START_HOUR = 21
-local AT_LED_STRIP_EVENING_START_MIN = 30
-local AT_LED_STRIP_EVENING_END_HOUR = 22
-local AT_LED_STRIP_EVENING_END_MIN = 10
-local AT_LED_STRIP_DAY_PERCENT = 100
-local AT_LED_STRIP_SEND_DELTA_PERCENT = 20.0
-
 local DAY_PERCENT = 100
-local BAD_SEND_DELTA_PERCENT = 0.1
+local BAD_SEND_DELTA_PERCENT = 2.0
 local STATE_KEY_PREFIX = "bd_"
-local AT_STATE_KEY_PREFIX = "at_"
 
 local function bd_log(msg)
   BT:log("BadOben Dimming: " .. tostring(msg))
-end
-
-local function at_led_strip_log(msg)
-  BT:log("Atelier-Arbeitsplatz LED-Stripe Dimming: " .. tostring(msg))
 end
 
 local function clamp(v, lo, hi)
@@ -143,45 +124,12 @@ end
 local function compute_bad_max_percent(hour, minute, second)
   local now_s = sec_of_day(hour, minute, second)
   local evening_start_s = sec_of_day(EVENING_START_HOUR, EVENING_START_MIN, 0)
-  local night_start_s = sec_of_day(NIGHT_START_HOUR, NIGHT_START_MIN, 0)
-  local night_descent_end_s = night_start_s + NIGHT_DESCENT_MIN * 60
-  local night_hold_until_s = sec_of_day(NIGHT_HOLD_UNTIL_HOUR, NIGHT_HOLD_UNTIL_MIN, 0)
-
-  if now_s >= night_start_s and now_s < night_hold_until_s then
-    if now_s < night_descent_end_s then
-      local p = clamp((now_s - night_start_s) / (NIGHT_DESCENT_MIN * 60), 0, 1)
-      return lerp(BAD_EVENING_CAP_PERCENT, NIGHT_TARGET_PERCENT, p)
-    end
-    return NIGHT_TARGET_PERCENT
-  end
 
   if now_s < evening_start_s then
     return DAY_PERCENT
   end
 
   return BAD_EVENING_CAP_PERCENT
-end
-
-local function compute_at_led_strip_auto_percent(hour, minute, second)
-  local now_s = sec_of_day(hour, minute, second)
-  local evening_start_s = sec_of_day(AT_LED_STRIP_EVENING_START_HOUR, AT_LED_STRIP_EVENING_START_MIN, 0)
-  local evening_end_s = sec_of_day(AT_LED_STRIP_EVENING_END_HOUR, AT_LED_STRIP_EVENING_END_MIN, 0)
-  local morning_reset_s = sec_of_day(5, 30, 0)
-
-  if now_s >= evening_end_s or now_s < morning_reset_s then
-    return 10
-  end
-
-  if now_s < evening_start_s then
-    return AT_LED_STRIP_DAY_PERCENT
-  end
-
-  if now_s < evening_end_s then
-    local p = clamp((now_s - evening_start_s) / (evening_end_s - evening_start_s), 0, 1)
-    return lerp(AT_LED_STRIP_DAY_PERCENT, 10, p)
-  end
-
-  return AT_LED_STRIP_DAY_PERCENT
 end
 
 local function prop_get(props, key, fallback)
@@ -194,18 +142,6 @@ end
 
 local function prop_set(props, key, value)
   props[STATE_KEY_PREFIX .. key] = value
-end
-
-local function at_prop_get(props, key, fallback)
-  local value = props[AT_STATE_KEY_PREFIX .. key]
-  if value == nil then
-    return fallback
-  end
-  return value
-end
-
-local function at_prop_set(props, key, value)
-  props[AT_STATE_KEY_PREFIX .. key] = value
 end
 
 local function next_evening_unlock_ts(now_ts)
@@ -262,44 +198,12 @@ local function save_bad_state(st, props)
   prop_set(props, "lock_until_ts", st.lock_until_ts)
 end
 
-local function load_at_state(props)
-  local st = {}
-  st.last_sent_percent = as_number(at_prop_get(props, "last_sent_percent", -1), -1)
-  st.last_percent = as_number(at_prop_get(props, "last_percent", AT_LED_STRIP_DAY_PERCENT), AT_LED_STRIP_DAY_PERCENT)
-  st.prev_manual_on = as_bool(at_prop_get(props, "prev_manual_on", false))
-  st.prev_cap_percent = as_number(at_prop_get(props, "prev_cap_percent", AT_LED_STRIP_DAY_PERCENT), AT_LED_STRIP_DAY_PERCENT)
-  st.prev_hour = as_number(at_prop_get(props, "prev_hour", -1), -1)
-  st.prev_minute = as_number(at_prop_get(props, "prev_minute", -1), -1)
-  st.prev_second = as_number(at_prop_get(props, "prev_second", -1), -1)
-  st.lock_active = as_bool(at_prop_get(props, "lock_active", false))
-  st.lock_until_ts = as_number(at_prop_get(props, "lock_until_ts", 0), 0)
-
-  st.last_sent_percent = clamp(st.last_sent_percent, -1, 100)
-  st.last_percent = normalize_percent(st.last_percent, AT_LED_STRIP_DAY_PERCENT)
-  st.prev_cap_percent = normalize_percent(st.prev_cap_percent, AT_LED_STRIP_DAY_PERCENT)
-  return st
-end
-
-local function save_at_state(st, props)
-  at_prop_set(props, "last_sent_percent", st.last_sent_percent)
-  at_prop_set(props, "last_percent", st.last_percent)
-  at_prop_set(props, "prev_manual_on", st.prev_manual_on)
-  at_prop_set(props, "prev_cap_percent", st.prev_cap_percent)
-  at_prop_set(props, "prev_hour", st.prev_hour)
-  at_prop_set(props, "prev_minute", st.prev_minute)
-  at_prop_set(props, "prev_second", st.prev_second)
-  at_prop_set(props, "lock_active", st.lock_active)
-  at_prop_set(props, "lock_until_ts", st.lock_until_ts)
-end
-
 local in1 = BT:getInValue("in1")
 local in2 = BT:getInValue("in2")
 local in3 = BT:getInValue("in3")
 local in4 = BT:getInValue("in4")
 local in5 = BT:getInValue("in5")
 local in6 = BT:getInValue("in6")
-local in7 = BT:getInValue("in7")
-local in8 = BT:getInValue("in8")
 local now_ts = BT:time()
 
 local manual_on = as_bool(in1)
@@ -308,16 +212,12 @@ local month = clamp(math.floor(as_number(in3, 1) + 0.5), 1, 12)
 local hour = clamp(math.floor(as_number(in4, 0) + 0.5), 0, 23)
 local minute = clamp(math.floor(as_number(in5, 0) + 0.5), 0, 59)
 local second = clamp(math.floor(as_number(in6, 0) + 0.5), 0, 59)
-local at_presence_on = as_bool(in7)
-local at_presence_target_percent = normalize_percent(in8, AT_LED_STRIP_DAY_PERCENT)
 
 local props = BT:getProperties()
 local bad_state = load_bad_state(props)
-local at_state = load_at_state(props)
 
 local manual_on_rising = manual_on and (not bad_state.prev_manual_on)
 local manual_on_falling = (not manual_on) and bad_state.prev_manual_on
-local at_presence_on_rising = at_presence_on and (not at_state.prev_manual_on)
 
 if manual_on_falling then
   -- TRLC: R-BAD-LOCK-001/002
@@ -336,15 +236,10 @@ if bad_state.lock_active and bad_state.lock_until_ts > 0 and now_ts ~= nil and n
   bd_log("Sperre aufgehoben, Automatik wieder aktiv")
 end
 
--- Presence OFF on in7 does not trigger a lock or immediate out2 action.
-at_state.lock_active = false
-at_state.lock_until_ts = 0
-
 local bad_time_changed = (hour ~= bad_state.prev_hour) or (minute ~= bad_state.prev_minute) or (second ~= bad_state.prev_second)
-local at_time_changed = (hour ~= at_state.prev_hour) or (minute ~= at_state.prev_minute) or (second ~= at_state.prev_second)
 local cap_changed = math.abs(cap_percent - bad_state.prev_cap_percent) >= 0.2
 local month_changed = month ~= bad_state.prev_month
-local at_presence_target_changed = math.abs(at_presence_target_percent - at_state.prev_cap_percent) >= 0.2
+local night_lock_active = (hour < 5) or (hour == 5 and minute < 30)
 
 -- IN3..IN6 are guaranteed by upstream logic, so desired values are always computed directly.
 local bad_max_percent = compute_bad_max_percent(hour, minute, second)
@@ -355,8 +250,11 @@ bad_desired_percent = normalize_percent(bad_desired_percent, bad_state.last_perc
 local bad_send_percent = nil
 
 if manual_on and (not bad_state.lock_active) then
+  if night_lock_active then
+    bad_send_percent = nil
+    bd_log("Nachtmodus aktiv: Beleuchtungssteuerung gesperrt")
   -- TRLC: R-SEND-001..005
-  if bad_state.last_sent_percent < 0 then
+  elseif bad_state.last_sent_percent < 0 then
     -- First send uses the computed target directly (no startup pass-through path).
     bad_send_percent = bad_desired_percent
     bd_log("Initialisierung abgeschlossen: out1=" .. tostring(math.floor(bad_desired_percent + 0.5)) .. "%")
@@ -378,52 +276,6 @@ if bad_send_percent ~= nil then
   bad_state.last_percent = bad_send_percent
 end
 
-local at_led_strip_desired_percent = at_presence_target_percent
-local at_auto_percent = compute_at_led_strip_auto_percent(hour, minute, second)
-at_led_strip_desired_percent = at_auto_percent
-local at_capped_percent = math.min(at_auto_percent, at_presence_target_percent)
-local at_now_s = sec_of_day(hour, minute, second)
-local at_evening_start_s = sec_of_day(AT_LED_STRIP_EVENING_START_HOUR, AT_LED_STRIP_EVENING_START_MIN, 0)
-local at_evening_end_s = sec_of_day(AT_LED_STRIP_EVENING_END_HOUR, AT_LED_STRIP_EVENING_END_MIN, 0)
-local at_morning_reset_s = sec_of_day(5, 30, 0)
-
-if at_now_s >= at_evening_start_s and at_now_s < at_evening_end_s then
-  at_led_strip_desired_percent = at_capped_percent
-elseif at_now_s >= at_evening_end_s or at_now_s < at_morning_reset_s then
-  at_led_strip_desired_percent = at_capped_percent
-else
-  at_led_strip_desired_percent = at_auto_percent
-end
-
-at_led_strip_desired_percent = normalize_percent(at_led_strip_desired_percent, at_state.last_percent)
-
-local at_led_strip_send_percent = nil
-
-if at_presence_on then
-  -- TRLC: R-SEND-001..005
-  if at_state.last_sent_percent < 0 then
-    -- First send uses the computed target directly (no startup pass-through path).
-    at_led_strip_send_percent = at_led_strip_desired_percent
-    at_led_strip_log("Initialisierung abgeschlossen: out2=" .. tostring(math.floor(at_led_strip_desired_percent + 0.5)) .. "%")
-  elseif at_presence_on_rising then
-    -- in7 rising edge publishes the current calculated value for out2.
-    at_led_strip_send_percent = at_led_strip_desired_percent
-    at_led_strip_log("Atelier-LED-Stripe EIN Trigger: out2=" .. tostring(math.floor(at_led_strip_desired_percent + 0.5)) .. "%")
-  elseif at_time_changed or at_presence_target_changed then
-    if should_send_delta(at_state.last_sent_percent, at_led_strip_desired_percent, AT_LED_STRIP_SEND_DELTA_PERCENT) then
-      at_led_strip_send_percent = at_led_strip_desired_percent
-    end
-  end
-elseif at_state.last_sent_percent < 0 and (not at_presence_on) then
-  at_led_strip_send_percent = nil
-end
-
-if at_led_strip_send_percent ~= nil then
-  BT:sendValue("out2", at_led_strip_send_percent)
-  at_state.last_sent_percent = at_led_strip_send_percent
-  at_state.last_percent = at_led_strip_send_percent
-end
-
 bad_state.prev_manual_on = manual_on
 bad_state.prev_cap_percent = cap_percent
 bad_state.prev_month = month
@@ -431,12 +283,5 @@ bad_state.prev_hour = hour
 bad_state.prev_minute = minute
 bad_state.prev_second = second
 
-at_state.prev_manual_on = at_presence_on
-at_state.prev_cap_percent = at_presence_target_percent
-at_state.prev_hour = hour
-at_state.prev_minute = minute
-at_state.prev_second = second
-
 save_bad_state(bad_state, props)
-save_at_state(at_state, props)
 BT:saveProperties()
