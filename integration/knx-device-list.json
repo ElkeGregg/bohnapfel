@@ -1,0 +1,2544 @@
+{
+    "projectMetadata": {
+        "project": "Bohnapfelweg",
+        "importDate": "Dienstag, 15. September 2020",
+        "printDate": "Sonntag, 15. März 2026",
+        "printTime": "15:07:09",
+        "status": "In Bearbeitung"
+    },
+    "devices": [
+        {
+            "location": "Etage 1 / Bad",
+            "address": "1.1.28",
+            "manufacturer": "MDT technologies",
+            "orderNumber": "SCN-P360D1.01",
+            "product": "SCN-P360D1.01 Präsenzmelder 1S Mini",
+            "application": "Präsenzmelder 360 Decke Mini",
+            "status": "",
+            "datasheetMarkdown": [
+                "datasheets/markdown/MDT_THB_Praesenzmelder_1_fach_01.md"
+            ]
+        },
+        {
+            "location": "Etage 1 / Flur",
+            "address": "1.1.8",
+            "manufacturer": "STEINEL professional",
+            "orderNumber": "4007841059xxx",
+            "product": "STEINEL Control Pro",
+            "application": "Control Pro",
+            "status": "",
+            "datasheetMarkdown": [
+                "datasheets/markdown/94938_02_KNX_Applikationsbeschreibung_Control_Pro_V3.1_KNX_DEU_EN_FR_IT.md"
+            ]
+        },
+        {
+            "location": "Etage 1 / Flur",
+            "address": "1.1.14",
+            "manufacturer": "Albrecht Jung",
+            "orderNumber": "5072TSM",
+            "product": "Tastsensormodul Standard 2fach",
+            "application": "Tastsensor Standard 110B11",
+            "status": "",
+            "datasheetMarkdown": [
+                "datasheets/markdown/de_507xTSM_TD.md",
+                "datasheets/markdown/de_xx507xTSM_32587323_20260612.md"
+            ]
+        },
+        {
+            "location": "Etage 1 / Kinderzimmer",
+            "address": "1.1.20",
+            "manufacturer": "Albrecht Jung",
+            "orderNumber": "5072TSM",
+            "product": "Tastsensormodul Standard 2fach",
+            "application": "Tastsensor Standard 110B11",
+            "status": "",
+            "datasheetMarkdown": [
+                "datasheets/markdown/de_507xTSM_TD.md",
+                "datasheets/markdown/de_xx507xTSM_32587323_20260612.md"
+            ]
+        },
+        {
+            "location": "Etage 1 / Kinderzimmer",
+            "address": "1.1.25",
+            "manufacturer": "STEINEL professional",
+            "orderNumber": "4007841056353",
+            "product": "STEINEL True Presence Multisensor",
+            "application": "True Presence Multisensor",
+            "status": "",
+            "datasheetMarkdown": [
+                "datasheets/markdown/172868_Datenblatt_-_4007841056353_-_MULTISENSOR_TRUE_PRESENCE_KNX_UP_WS.md"
+            ]
+        },
+        {
+            "location": "Etage 1 / Kinderzimmer",
+            "address": "1.1.26",
+            "manufacturer": "Albrecht Jung",
+            "orderNumber": "5073TSM",
+            "product": "Tastsensormodul Standard 3fach",
+            "application": "Tastsensor Standard 110C11",
+            "status": "",
+            "datasheetMarkdown": [
+                "datasheets/markdown/de_507xTSM_TD.md",
+                "datasheets/markdown/de_xx507xTSM_32587323_20260612.md"
+            ]
+        },
+        {
+            "location": "Etage 1 / Terrasse",
+            "address": "1.1.27",
+            "manufacturer": "Albrecht Jung",
+            "orderNumber": "5072TSM",
+            "product": "Tastsensormodul Standard 2fach",
+            "application": "Tastsensor Standard 110B11",
+            "status": "",
+            "datasheetMarkdown": [
+                "datasheets/markdown/de_507xTSM_TD.md",
+                "datasheets/markdown/de_xx507xTSM_32587323_20260612.md"
+            ]
+        },
+        {
+            "location": "Etage 1 / Vorratsraum",
+            "address": "1.1.1",
+            "manufacturer": "MDT technologies",
+            "orderNumber": "SCN-DALI16.03",
+            "product": "DaliControl 16",
+            "application": "DaliControl 16",
+            "status": "",
+            "datasheetMarkdown": [
+                "datasheets/markdown/MDT_THB_DaliControl_Gateway_03.md"
+            ]
+        },
+        {
+            "location": "Etage 1 / Vorratsraum",
+            "address": "1.1.6",
+            "manufacturer": "MDT technologies",
+            "orderNumber": "AKU-1616.02",
+            "product": "AKU-1616.02 Universalaktor 16-fach, 16A, 230VAC",
+            "application": "Schalten, Treppenlicht 16-fach / Jalousie, Rollade 8-fach",
+            "status": "",
+            "datasheetMarkdown": [
+                "datasheets/markdown/mdt_thb_universalaktor_02.md"
+            ]
+        },
+        {
+            "location": "Etage 1 / Vorratsraum",
+            "address": "1.1.12",
+            "manufacturer": "MDT technologies",
+            "orderNumber": "SCN-P360D1.01",
+            "product": "SCN-P360D1.01 Präsenzmelder 1S Mini",
+            "application": "Präsenzmelder 360 Decke Mini",
+            "status": "",
+            "datasheetMarkdown": [
+                "datasheets/markdown/MDT_THB_Praesenzmelder_1_fach_01.md"
+            ]
+        },
+        {
+            "location": "Etage 1 / Vorratsraum",
+            "address": "1.1.24",
+            "manufacturer": "MDT technologies",
+            "orderNumber": "AKH-0800.02",
+            "product": "AKH-0800.02 Heizungsaktor 8-fach, 4TE, 24/230 VAC",
+            "application": "Heizungsaktor 8-fach",
+            "status": "",
+            "datasheetMarkdown": [
+                "datasheets/markdown/MDT_THB_AKH_03_Heizungsaktor_V12.md"
+            ]
+        },
+        {
+            "location": "Etage 1 / WohnEssKueche",
+            "address": "1.1.9",
+            "manufacturer": "MDT technologies",
+            "orderNumber": "BE-GT2Tx.01",
+            "product": "BE-GT2Tx.01 Glastaster II Smart mit Temperatursensor",
+            "application": "Glastaster II Smart, Temperatur",
+            "status": "",
+            "datasheetMarkdown": [
+                "datasheets/markdown/MDT_THB_BE_02_Glastaster_II_Smart_Taster_Smart_86_V10.md"
+            ]
+        },
+        {
+            "location": "Etage 1 / WohnEssKueche",
+            "address": "1.1.11",
+            "manufacturer": "Albrecht Jung",
+            "orderNumber": "5072TSM",
+            "product": "Tastsensormodul Standard 2fach",
+            "application": "Tastsensor Standard 110B11",
+            "status": "",
+            "datasheetMarkdown": [
+                "datasheets/markdown/de_507xTSM_TD.md",
+                "datasheets/markdown/de_xx507xTSM_32587323_20260612.md"
+            ]
+        },
+        {
+            "location": "Etage 1 / WohnEssKueche",
+            "address": "1.1.15",
+            "manufacturer": "STEINEL professional",
+            "orderNumber": "4007841056353",
+            "product": "STEINEL True Presence Multisensor",
+            "application": "True Presence Multisensor",
+            "status": "",
+            "datasheetMarkdown": [
+                "datasheets/markdown/172868_Datenblatt_-_4007841056353_-_MULTISENSOR_TRUE_PRESENCE_KNX_UP_WS.md"
+            ]
+        },
+        {
+            "location": "Etage 1 / WohnEssKueche",
+            "address": "1.1.17",
+            "manufacturer": "MDT technologies",
+            "orderNumber": "JAL-01UP.02",
+            "product": "JAL-01UP.02 Jalousieaktor 1-fach, UP, 230VAC, 6A",
+            "application": "Jalousie, Rollade 1-fach",
+            "status": "",
+            "datasheetMarkdown": [
+                "datasheets/markdown/MDT_THB_Jalousieaktor_02.md"
+            ]
+        },
+        {
+            "location": "Etage 2 / Ankleidezimmer",
+            "address": "1.1.13",
+            "manufacturer": "MDT technologies",
+            "orderNumber": "SCN-P360D1.01",
+            "product": "SCN-P360D1.01 Präsenzmelder 1S Mini",
+            "application": "Präsenzmelder 360 Decke Mini",
+            "status": "",
+            "datasheetMarkdown": [
+                "datasheets/markdown/MDT_THB_Praesenzmelder_1_fach_01.md"
+            ]
+        },
+        {
+            "location": "Etage 2 / Atelier",
+            "address": "1.1.3",
+            "manufacturer": "STEINEL professional",
+            "orderNumber": "4007841032xxx",
+            "product": "STEINEL Wandschalter KNX",
+            "application": "Wandschalter KNX V1.00",
+            "status": "",
+            "datasheetMarkdown": []
+        },
+        {
+            "location": "Etage 2 / Atelier",
+            "address": "1.1.5",
+            "manufacturer": "Albrecht Jung",
+            "orderNumber": "5073TSM",
+            "product": "Tastsensormodul Standard 3fach",
+            "application": "Tastsensor Standard 110C11",
+            "status": "",
+            "datasheetMarkdown": [
+                "datasheets/markdown/de_507xTSM_TD.md",
+                "datasheets/markdown/de_xx507xTSM_32587323_20260612.md"
+            ]
+        },
+        {
+            "location": "Etage 2 / Atelier",
+            "address": "1.1.21",
+            "manufacturer": "MDT technologies",
+            "orderNumber": "BE-GT2Tx.01",
+            "product": "BE-GT2Tx.01 Glastaster II Smart mit Temperatursensor",
+            "application": "Glastaster II Smart, Temperatur",
+            "status": "",
+            "datasheetMarkdown": [
+                "datasheets/markdown/MDT_THB_BE_02_Glastaster_II_Smart_Taster_Smart_86_V10.md"
+            ]
+        },
+        {
+            "location": "Etage 2 / Atelier",
+            "address": "1.1.23",
+            "manufacturer": "STEINEL professional",
+            "orderNumber": "4007841056339",
+            "product": "STEINEL True Presence",
+            "application": "TruePresence",
+            "status": "",
+            "datasheetMarkdown": [
+                "datasheets/markdown/166643_Datenblatt_-_4007841079451_-_PRAESENZMELDER_TRUE_PRESENCE_KNX_DE.md",
+                "datasheets/markdown/61943_09_KNX_Applikationsbeschreibung_True_Presence_KNX_DEU_EN_FR_IT.md"
+            ]
+        },
+        {
+            "location": "Etage 2 / Bad",
+            "address": "1.1.16",
+            "manufacturer": "STEINEL professional",
+            "orderNumber": "4007841032xxx",
+            "product": "STEINEL Wandschalter KNX",
+            "application": "Wandschalter KNX V1.00",
+            "status": "",
+            "datasheetMarkdown": []
+        },
+        {
+            "location": "Etage 2 / Bad",
+            "address": "1.1.18",
+            "manufacturer": "MDT technologies",
+            "orderNumber": "BE-GT2Tx.01",
+            "product": "BE-GT2Tx.01 Glastaster II Smart mit Temperatursensor",
+            "application": "Glastaster II Smart, Temperatur",
+            "status": "",
+            "datasheetMarkdown": [
+                "datasheets/markdown/MDT_THB_BE_02_Glastaster_II_Smart_Taster_Smart_86_V10.md"
+            ]
+        },
+        {
+            "location": "Etage 2 / Schlafzimmer Eltern",
+            "address": "1.1.2",
+            "manufacturer": "Albrecht Jung",
+            "orderNumber": "5072TSM",
+            "product": "Tastsensormodul Standard 2fach",
+            "application": "Tastsensor Standard 110B11",
+            "status": "",
+            "datasheetMarkdown": [
+                "datasheets/markdown/de_507xTSM_TD.md",
+                "datasheets/markdown/de_xx507xTSM_32587323_20260612.md"
+            ]
+        },
+        {
+            "location": "Etage 2 / Schlafzimmer Eltern",
+            "address": "1.1.4",
+            "manufacturer": "Albrecht Jung",
+            "orderNumber": "5072TSM",
+            "product": "Tastsensormodul Standard 2fach",
+            "application": "Tastsensor Standard 110B11",
+            "status": "",
+            "datasheetMarkdown": [
+                "datasheets/markdown/de_507xTSM_TD.md",
+                "datasheets/markdown/de_xx507xTSM_32587323_20260612.md"
+            ]
+        },
+        {
+            "location": "Fenster",
+            "address": "1.1.7",
+            "manufacturer": "Albrecht Jung",
+            "orderNumber": "3180",
+            "product": "Automatik-Schalter 180° Standard 1,10 m",
+            "application": "PIR Einzelgerät A00101",
+            "status": "",
+            "datasheetMarkdown": [
+                "datasheets/markdown/de_A_3181_WW_ad_jungAutomatikschalter.md",
+                "datasheets/markdown/de_x3181x_32597033_20190724_jungAutomatikschalter_Bedienungsanleitung.md"
+            ]
+        },
+        {
+            "location": "Fenster",
+            "address": "1.1.10",
+            "manufacturer": "Albrecht Jung",
+            "orderNumber": "5072TSM",
+            "product": "Tastsensormodul Standard 2fach",
+            "application": "Tastsensor Standard 110B11",
+            "status": "",
+            "datasheetMarkdown": [
+                "datasheets/markdown/de_507xTSM_TD.md",
+                "datasheets/markdown/de_xx507xTSM_32587323_20260612.md"
+            ]
+        },
+        {
+            "location": "System / Logik",
+            "address": "",
+            "manufacturer": "BAB TECHNOLOGIE",
+            "orderNumber": "eibPort",
+            "product": "eibPort",
+            "application": "Visualisierung und Logikserver",
+            "status": "Manuell ergänzt (nicht im ETS-Export)",
+            "datasheetMarkdown": [
+                "datasheets/markdown/EIBPORT-Dokumentation-398-DE-250121.md"
+            ]
+        },
+        {
+            "location": "System / Logik",
+            "address": "",
+            "manufacturer": "BAB TECHNOLOGIE GmbH",
+            "orderNumber": "AppModule",
+            "product": "APP MODULE",
+            "application": "AppModule / LogikEditor",
+            "version": "1.7.4",
+            "serialNumber": "BT1244381620",
+            "status": "Manuell ergänzt (nicht im ETS-Export)",
+            "datasheetMarkdown": [
+                "datasheets/markdown/APPMODULE-Dokumentation-1.7.6-DE-2025-02.md"
+            ]
+        },
+        {
+            "location": "System / Logik",
+            "address": "1.1.29",
+            "manufacturer": "MDT technologies",
+            "orderNumber": "STC-640.01",
+            "product": "STC-640.01 Spannungsversorgung 640mA",
+            "application": "Busspannungsversorgung mit Diagnosefunktion",
+            "status": "Manuell ergänzt (nicht im ETS-Export)",
+            "datasheetMarkdown": [
+                "datasheets/markdown/STC-xxx0-01_MDT_TM_V11_DE.md"
+            ]
+        }
+    ],
+    "devicesByArea": {
+        "Etage 1": {
+            "Bad": [
+                {
+                    "address": "1.1.28",
+                    "manufacturer": "MDT technologies",
+                    "orderNumber": "SCN-P360D1.01",
+                    "application": "Präsenzmelder 360 Decke Mini",
+                    "datasheetMarkdown": [
+                        "datasheets/markdown/MDT_THB_Praesenzmelder_1_fach_01.md"
+                    ]
+                }
+            ],
+            "Flur": [
+                {
+                    "address": "1.1.8",
+                    "manufacturer": "STEINEL professional",
+                    "orderNumber": "4007841059xxx",
+                    "application": "STEINEL Control Pro",
+                    "datasheetMarkdown": [
+                        "datasheets/markdown/94938_02_KNX_Applikationsbeschreibung_Control_Pro_V3.1_KNX_DEU_EN_FR_IT.md"
+                    ]
+                },
+                {
+                    "address": "1.1.14",
+                    "manufacturer": "Albrecht Jung",
+                    "orderNumber": "5072TSM",
+                    "application": "Tastsensor Standard 110B11",
+                    "datasheetMarkdown": [
+                        "datasheets/markdown/de_507xTSM_TD.md",
+                        "datasheets/markdown/de_xx507xTSM_32587323_20260612.md"
+                    ]
+                }
+            ],
+            "Kinderzimmer": [
+                {
+                    "address": "1.1.20",
+                    "manufacturer": "Albrecht Jung",
+                    "orderNumber": "5072TSM",
+                    "application": "Tastsensor Standard 110B11",
+                    "datasheetMarkdown": [
+                        "datasheets/markdown/de_507xTSM_TD.md",
+                        "datasheets/markdown/de_xx507xTSM_32587323_20260612.md"
+                    ]
+                },
+                {
+                    "address": "1.1.25",
+                    "manufacturer": "STEINEL professional",
+                    "orderNumber": "4007841056353",
+                    "application": "True Presence Multisensor",
+                    "datasheetMarkdown": [
+                        "datasheets/markdown/172868_Datenblatt_-_4007841056353_-_MULTISENSOR_TRUE_PRESENCE_KNX_UP_WS.md"
+                    ]
+                },
+                {
+                    "address": "1.1.26",
+                    "manufacturer": "Albrecht Jung",
+                    "orderNumber": "5073TSM",
+                    "application": "Tastsensor Standard 110C11",
+                    "datasheetMarkdown": [
+                        "datasheets/markdown/de_507xTSM_TD.md",
+                        "datasheets/markdown/de_xx507xTSM_32587323_20260612.md"
+                    ]
+                }
+            ],
+            "Terrasse": [
+                {
+                    "address": "1.1.27",
+                    "manufacturer": "Albrecht Jung",
+                    "orderNumber": "5072TSM",
+                    "application": "Tastsensor Standard 110B11",
+                    "datasheetMarkdown": [
+                        "datasheets/markdown/de_507xTSM_TD.md",
+                        "datasheets/markdown/de_xx507xTSM_32587323_20260612.md"
+                    ]
+                }
+            ],
+            "Vorratsraum": [
+                {
+                    "address": "1.1.1",
+                    "manufacturer": "MDT technologies",
+                    "orderNumber": "SCN-DALI16.03",
+                    "application": "DaliControl 16",
+                    "datasheetMarkdown": [
+                        "datasheets/markdown/MDT_THB_DaliControl_Gateway_03.md"
+                    ]
+                },
+                {
+                    "address": "1.1.6",
+                    "manufacturer": "MDT technologies",
+                    "orderNumber": "AKU-1616.02",
+                    "application": "Universalaktor 16-fach, 16A, 230VAC",
+                    "datasheetMarkdown": [
+                        "datasheets/markdown/mdt_thb_universalaktor_02.md"
+                    ]
+                },
+                {
+                    "address": "1.1.12",
+                    "manufacturer": "MDT technologies",
+                    "orderNumber": "SCN-P360D1.01",
+                    "application": "Präsenzmelder 360 Decke Mini",
+                    "datasheetMarkdown": [
+                        "datasheets/markdown/MDT_THB_Praesenzmelder_1_fach_01.md"
+                    ]
+                },
+                {
+                    "address": "1.1.24",
+                    "manufacturer": "MDT technologies",
+                    "orderNumber": "AKH-0800.02",
+                    "application": "Heizungsaktor 8-fach",
+                    "datasheetMarkdown": [
+                        "datasheets/markdown/MDT_THB_AKH_03_Heizungsaktor_V12.md"
+                    ]
+                }
+            ],
+            "WohnEssKueche": [
+                {
+                    "address": "1.1.9",
+                    "manufacturer": "MDT technologies",
+                    "orderNumber": "BE-GT2Tx.01",
+                    "application": "Glastaster II Smart, Temperatur",
+                    "datasheetMarkdown": [
+                        "datasheets/markdown/MDT_THB_BE_02_Glastaster_II_Smart_Taster_Smart_86_V10.md"
+                    ]
+                },
+                {
+                    "address": "1.1.11",
+                    "manufacturer": "Albrecht Jung",
+                    "orderNumber": "5072TSM",
+                    "application": "Tastsensor Standard 110B11",
+                    "datasheetMarkdown": [
+                        "datasheets/markdown/de_507xTSM_TD.md",
+                        "datasheets/markdown/de_xx507xTSM_32587323_20260612.md"
+                    ]
+                },
+                {
+                    "address": "1.1.15",
+                    "manufacturer": "STEINEL professional",
+                    "orderNumber": "4007841056353",
+                    "application": "True Presence Multisensor",
+                    "datasheetMarkdown": [
+                        "datasheets/markdown/172868_Datenblatt_-_4007841056353_-_MULTISENSOR_TRUE_PRESENCE_KNX_UP_WS.md"
+                    ]
+                },
+                {
+                    "address": "1.1.17",
+                    "manufacturer": "MDT technologies",
+                    "orderNumber": "JAL-01UP.02",
+                    "application": "Jalousieaktor 1-fach",
+                    "datasheetMarkdown": [
+                        "datasheets/markdown/MDT_THB_Jalousieaktor_02.md"
+                    ]
+                }
+            ]
+        },
+        "Etage 2": {
+            "Ankleidezimmer": [
+                {
+                    "address": "1.1.13",
+                    "manufacturer": "MDT technologies",
+                    "orderNumber": "SCN-P360D1.01",
+                    "application": "Präsenzmelder 360 Decke Mini",
+                    "datasheetMarkdown": [
+                        "datasheets/markdown/MDT_THB_Praesenzmelder_1_fach_01.md"
+                    ]
+                }
+            ],
+            "Atelier": [
+                {
+                    "address": "1.1.3",
+                    "manufacturer": "STEINEL professional",
+                    "orderNumber": "4007841032xxx",
+                    "application": "Wandschalter KNX V1.00",
+                    "datasheetMarkdown": []
+                },
+                {
+                    "address": "1.1.5",
+                    "manufacturer": "Albrecht Jung",
+                    "orderNumber": "5073TSM",
+                    "application": "Tastsensor Standard 110C11",
+                    "datasheetMarkdown": [
+                        "datasheets/markdown/de_507xTSM_TD.md",
+                        "datasheets/markdown/de_xx507xTSM_32587323_20260612.md"
+                    ]
+                },
+                {
+                    "address": "1.1.21",
+                    "manufacturer": "MDT technologies",
+                    "orderNumber": "BE-GT2Tx.01",
+                    "application": "Glastaster II Smart, Temperatur",
+                    "datasheetMarkdown": [
+                        "datasheets/markdown/MDT_THB_BE_02_Glastaster_II_Smart_Taster_Smart_86_V10.md"
+                    ]
+                },
+                {
+                    "address": "1.1.23",
+                    "manufacturer": "STEINEL professional",
+                    "orderNumber": "4007841056339",
+                    "application": "True Presence",
+                    "datasheetMarkdown": [
+                        "datasheets/markdown/166643_Datenblatt_-_4007841079451_-_PRAESENZMELDER_TRUE_PRESENCE_KNX_DE.md",
+                        "datasheets/markdown/61943_09_KNX_Applikationsbeschreibung_True_Presence_KNX_DEU_EN_FR_IT.md"
+                    ]
+                }
+            ],
+            "Bad": [
+                {
+                    "address": "1.1.16",
+                    "manufacturer": "STEINEL professional",
+                    "orderNumber": "4007841032xxx",
+                    "application": "Wandschalter KNX V1.00",
+                    "datasheetMarkdown": []
+                },
+                {
+                    "address": "1.1.18",
+                    "manufacturer": "MDT technologies",
+                    "orderNumber": "BE-GT2Tx.01",
+                    "application": "Glastaster II Smart, Temperatur",
+                    "datasheetMarkdown": [
+                        "datasheets/markdown/MDT_THB_BE_02_Glastaster_II_Smart_Taster_Smart_86_V10.md"
+                    ]
+                }
+            ],
+            "Schlafzimmer Eltern": [
+                {
+                    "address": "1.1.2",
+                    "manufacturer": "Albrecht Jung",
+                    "orderNumber": "5072TSM",
+                    "application": "Tastsensor Standard 110B11",
+                    "datasheetMarkdown": [
+                        "datasheets/markdown/de_507xTSM_TD.md",
+                        "datasheets/markdown/de_xx507xTSM_32587323_20260612.md"
+                    ]
+                },
+                {
+                    "address": "1.1.4",
+                    "manufacturer": "Albrecht Jung",
+                    "orderNumber": "5072TSM",
+                    "application": "Tastsensor Standard 110B11",
+                    "datasheetMarkdown": [
+                        "datasheets/markdown/de_507xTSM_TD.md",
+                        "datasheets/markdown/de_xx507xTSM_32587323_20260612.md"
+                    ]
+                }
+            ],
+            "Fenster": [
+                {
+                    "address": "1.1.7",
+                    "manufacturer": "Albrecht Jung",
+                    "orderNumber": "3180",
+                    "application": "Automatik-Schalter 180° Standard 1,10 m",
+                    "datasheetMarkdown": [
+                        "datasheets/markdown/de_A_3181_WW_ad_jungAutomatikschalter.md",
+                        "datasheets/markdown/de_x3181x_32597033_20190724_jungAutomatikschalter_Bedienungsanleitung.md"
+                    ]
+                },
+                {
+                    "address": "1.1.10",
+                    "manufacturer": "Albrecht Jung",
+                    "orderNumber": "5072TSM",
+                    "application": "Tastsensor Standard 110B11",
+                    "datasheetMarkdown": [
+                        "datasheets/markdown/de_507xTSM_TD.md",
+                        "datasheets/markdown/de_xx507xTSM_32587323_20260612.md"
+                    ]
+                }
+            ]
+        },
+        "System": {
+            "Logik": [
+                {
+                    "address": "",
+                    "manufacturer": "BAB TECHNOLOGIE",
+                    "orderNumber": "eibPort",
+                    "application": "Visualisierung und Logikserver",
+                    "datasheetMarkdown": [
+                        "datasheets/markdown/EIBPORT-Dokumentation-398-DE-250121.md"
+                    ]
+                },
+                {
+                    "address": "",
+                    "manufacturer": "BAB TECHNOLOGIE GmbH",
+                    "orderNumber": "AppModule",
+                    "product": "APP MODULE",
+                    "application": "AppModule / LogikEditor",
+                    "version": "1.7.4",
+                    "serialNumber": "BT1244381620",
+                    "datasheetMarkdown": [
+                        "datasheets/markdown/APPMODULE-Dokumentation-1.7.6-DE-2025-02.md"
+                    ]
+                },
+                {
+                    "address": "1.1.29",
+                    "manufacturer": "MDT technologies",
+                    "orderNumber": "STC-640.01",
+                    "product": "STC-640.01 Spannungsversorgung 640mA",
+                    "application": "Busspannungsversorgung mit Diagnosefunktion",
+                    "datasheetMarkdown": [
+                        "datasheets/markdown/STC-xxx0-01_MDT_TM_V11_DE.md"
+                    ]
+                }
+            ]
+        }
+    },
+    "notes": [
+        "The source file is a KNX export in CSV-like structure with section headers and nested room groupings.",
+        "Some columns in the export are empty or not fully normalized, so this documentation preserves the visible fields and groups devices by location.",
+        "The `Treppenhaus` section is present in the source excerpt, but no device row is shown under it.",
+        "eibPort and AppModule were added manually as system components because they are relevant to the installation but are not listed as ETS devices in the source export.",
+        "Across all rooms, the installation includes Hue White Ambiance E27 luminaires and CONSTALED 30022 LED-Strip DTW 5 m Rolle | 18 W/m, IP68.",
+        "Unverknuepfte Datasheet-Markdown-Dateien: datasheets/markdown/162488_05_KNX_Applikationsbeschreibung_IR_HF180_KNX_3.1_DEU_EN.md, datasheets/markdown/163596_Datenblatt_-_4007841079604_-_PRAESENZMELDER_DUAL_US_KNX_V3.1_DE.md, datasheets/markdown/166643_Datenblatt_-_4007841079451_-_PRAESENZMELDER_TRUE_PRESENCE_KNX_DE.md, datasheets/markdown/61943_09_KNX_Applikationsbeschreibung_True_Presence_KNX_DEU_EN_FR_IT.md, datasheets/markdown/61945_06_KNX_Applikationsbeschreibung_Multisensor_KNX_DEU_EN_FR_IT.md, datasheets/markdown/94938_02_KNX_Applikationsbeschreibung_Control_Pro_V3.1_KNX_DEU_EN_FR_IT.md, datasheets/markdown/95196_Datenblatt_-_4007841058463_-_SENSORSCHALTER_IR_180_KNX_V3.1_WS.md, datasheets/markdown/JAL-B1UP-02_MDT_DS_DE.md, datasheets/markdown/MDT_DB_Heizungsaktor_03.md, datasheets/markdown/MDT_DB_Praesenzmelder_03.md, datasheets/markdown/MDT_THB_AKH_03_Heizungsaktor_V12.md, datasheets/markdown/MDT_THB_BE_02_Glastaster_II_Smart_Taster_Smart_86_V10.md, datasheets/markdown/MDT_THB_Jalousieaktor_02.md, datasheets/markdown/STC-xxx0-01_MDT_TM_V11_DE.md, datasheets/markdown/USU_X2_PH_DE_V1-2_2CDC504019D0103.md, datasheets/markdown/de_507xTSM_TD.md, datasheets/markdown/de_A_3181_WW_ad_jungAutomatikschalter.md, datasheets/markdown/de_x3181x_32597033_20190724_jungAutomatikschalter_Bedienungsanleitung.md, datasheets/markdown/de_xx507xTSM_32587323_20260612.md"
+    ],
+    "groupAddresses": [
+        {
+            "mainGroup": "0",
+            "mainGroupName": "Szenen",
+            "middleGroup": "0/0",
+            "middleGroupName": "Wohnung",
+            "subGroup": "1",
+            "address": "0/0/1",
+            "name": "Szene",
+            "path": "Szenen / Wohnung / Szene",
+            "dataType": "Szenensteuerung",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "0",
+            "mainGroupName": "Szenen",
+            "middleGroup": "0/0",
+            "middleGroupName": "Wohnung",
+            "subGroup": "2",
+            "address": "0/0/2",
+            "name": "FARBTEMPERATUR_DALI_ZENTRAL",
+            "path": "Szenen / Wohnung / FARBTEMPERATUR_DALI_ZENTRAL",
+            "dataType": "2-Byte vorzeichenlos",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "0",
+            "mainGroupName": "Szenen",
+            "middleGroup": "0/0",
+            "middleGroupName": "Wohnung",
+            "subGroup": "3",
+            "address": "0/0/3",
+            "name": "Farbtemperatur_HUE_ZENTRAL",
+            "path": "Szenen / Wohnung / Farbtemperatur_HUE_ZENTRAL",
+            "dataType": "Pulse",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "0",
+            "mainGroupName": "Szenen",
+            "middleGroup": "0/0",
+            "middleGroupName": "Wohnung",
+            "subGroup": "4",
+            "address": "0/0/4",
+            "name": "Szene_HUE_ZENTRAL",
+            "path": "Szenen / Wohnung / Szene_HUE_ZENTRAL",
+            "dataType": "",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "1",
+            "mainGroupName": "Beleuchtung",
+            "middleGroup": "1/0",
+            "middleGroupName": "FlurTreppenhaus",
+            "subGroup": "0",
+            "address": "1/0/0",
+            "name": "HUE_ein_aus",
+            "path": "Beleuchtung / FlurTreppenhaus / HUE_ein_aus",
+            "dataType": "Schalten",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "1",
+            "mainGroupName": "Beleuchtung",
+            "middleGroup": "1/0",
+            "middleGroupName": "FlurTreppenhaus",
+            "subGroup": "1",
+            "address": "1/0/1",
+            "name": "HUE_ein_aus_Status",
+            "path": "Beleuchtung / FlurTreppenhaus / HUE_ein_aus_Status",
+            "dataType": "",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "1",
+            "mainGroupName": "Beleuchtung",
+            "middleGroup": "1/0",
+            "middleGroupName": "FlurTreppenhaus",
+            "subGroup": "2",
+            "address": "1/0/2",
+            "name": "Flur_Hue_Farbtemperatur",
+            "path": "Beleuchtung / FlurTreppenhaus / Flur_Hue_Farbtemperatur",
+            "dataType": "Pulse",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "1",
+            "mainGroupName": "Beleuchtung",
+            "middleGroup": "1/0",
+            "middleGroupName": "FlurTreppenhaus",
+            "subGroup": "3",
+            "address": "1/0/3",
+            "name": "DekoLichtGarderobe",
+            "path": "Beleuchtung / FlurTreppenhaus / DekoLichtGarderobe",
+            "dataType": "Schalten",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "1",
+            "mainGroupName": "Beleuchtung",
+            "middleGroup": "1/0",
+            "middleGroupName": "FlurTreppenhaus",
+            "subGroup": "4",
+            "address": "1/0/4",
+            "name": "HUE_HELLIGKEIT",
+            "path": "Beleuchtung / FlurTreppenhaus / HUE_HELLIGKEIT",
+            "dataType": "Prozent (0..100%)",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "1",
+            "mainGroupName": "Beleuchtung",
+            "middleGroup": "1/0",
+            "middleGroupName": "FlurTreppenhaus",
+            "subGroup": "5",
+            "address": "1/0/5",
+            "name": "HUE_HELLIGKEIT_TUNABLE",
+            "path": "Beleuchtung / FlurTreppenhaus / HUE_HELLIGKEIT_TUNABLE",
+            "dataType": "Prozent (0..100%)",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "1",
+            "mainGroupName": "Beleuchtung",
+            "middleGroup": "1/0",
+            "middleGroupName": "FlurTreppenhaus",
+            "subGroup": "6",
+            "address": "1/0/6",
+            "name": "DekoLicht Garderobe DIMM",
+            "path": "Beleuchtung / FlurTreppenhaus / DekoLicht Garderobe DIMM",
+            "dataType": "Prozent (0..100%)",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "1",
+            "mainGroupName": "Beleuchtung",
+            "middleGroup": "1/0",
+            "middleGroupName": "FlurTreppenhaus",
+            "subGroup": "7",
+            "address": "1/0/7",
+            "name": "FlurHellManuell",
+            "path": "Beleuchtung / FlurTreppenhaus / FlurHellManuell",
+            "dataType": "1-Bit",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "1",
+            "mainGroupName": "Beleuchtung",
+            "middleGroup": "1/0",
+            "middleGroupName": "FlurTreppenhaus",
+            "subGroup": "8",
+            "address": "1/0/8",
+            "name": "Stufenbeleuchtung_Ein_Aus",
+            "path": "Beleuchtung / FlurTreppenhaus / Stufenbeleuchtung_Ein_Aus",
+            "dataType": "",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "1",
+            "mainGroupName": "Beleuchtung",
+            "middleGroup": "1/0",
+            "middleGroupName": "FlurTreppenhaus",
+            "subGroup": "9",
+            "address": "1/0/9",
+            "name": "Weihnachtsbeleuchtung_Decke_AT",
+            "path": "Beleuchtung / FlurTreppenhaus / Weihnachtsbeleuchtung_Decke_AT",
+            "dataType": "Schalten",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "1",
+            "mainGroupName": "Beleuchtung",
+            "middleGroup": "1/1",
+            "middleGroupName": "WohnEssKuecheTerrasse",
+            "subGroup": "0",
+            "address": "1/1/0",
+            "name": "HUE_ein_aus",
+            "path": "Beleuchtung / WohnEssKuecheTerrasse / HUE_ein_aus",
+            "dataType": "Schalten",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "1",
+            "mainGroupName": "Beleuchtung",
+            "middleGroup": "1/1",
+            "middleGroupName": "WohnEssKuecheTerrasse",
+            "subGroup": "1",
+            "address": "1/1/1",
+            "name": "HUE_ein_aus_Status",
+            "path": "Beleuchtung / WohnEssKuecheTerrasse / HUE_ein_aus_Status",
+            "dataType": "Schalten",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "1",
+            "mainGroupName": "Beleuchtung",
+            "middleGroup": "1/1",
+            "middleGroupName": "WohnEssKuecheTerrasse",
+            "subGroup": "2",
+            "address": "1/1/2",
+            "name": "HUE_FARBTEMPERATUR",
+            "path": "Beleuchtung / WohnEssKuecheTerrasse / HUE_FARBTEMPERATUR",
+            "dataType": "Prozent (0..100%)",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "1",
+            "mainGroupName": "Beleuchtung",
+            "middleGroup": "1/1",
+            "middleGroupName": "WohnEssKuecheTerrasse",
+            "subGroup": "3",
+            "address": "1/1/3",
+            "name": "HUE_HELLIGKEIT",
+            "path": "Beleuchtung / WohnEssKuecheTerrasse / HUE_HELLIGKEIT",
+            "dataType": "",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "1",
+            "mainGroupName": "Beleuchtung",
+            "middleGroup": "1/1",
+            "middleGroupName": "WohnEssKuecheTerrasse",
+            "subGroup": "4",
+            "address": "1/1/4",
+            "name": "HUE_HELLIGKEIT_TUNABLE",
+            "path": "Beleuchtung / WohnEssKuecheTerrasse / HUE_HELLIGKEIT_TUNABLE",
+            "dataType": "",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "1",
+            "mainGroupName": "Beleuchtung",
+            "middleGroup": "1/1",
+            "middleGroupName": "WohnEssKuecheTerrasse",
+            "subGroup": "5",
+            "address": "1/1/5",
+            "name": "HUE_FARBTEMPERATUR_STATUS",
+            "path": "Beleuchtung / WohnEssKuecheTerrasse / HUE_FARBTEMPERATUR_STATUS",
+            "dataType": "Prozent (0..100%)",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "1",
+            "mainGroupName": "Beleuchtung",
+            "middleGroup": "1/1",
+            "middleGroupName": "WohnEssKuecheTerrasse",
+            "subGroup": "6",
+            "address": "1/1/6",
+            "name": "Arbeitsplatte_ein_aus",
+            "path": "Beleuchtung / WohnEssKuecheTerrasse / Arbeitsplatte_ein_aus",
+            "dataType": "Schalten",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "1",
+            "mainGroupName": "Beleuchtung",
+            "middleGroup": "1/1",
+            "middleGroupName": "WohnEssKuecheTerrasse",
+            "subGroup": "7",
+            "address": "1/1/7",
+            "name": "Arbeitsplatte_HELLIGKEIT",
+            "path": "Beleuchtung / WohnEssKuecheTerrasse / Arbeitsplatte_HELLIGKEIT",
+            "dataType": "",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "1",
+            "mainGroupName": "Beleuchtung",
+            "middleGroup": "1/1",
+            "middleGroupName": "WohnEssKuecheTerrasse",
+            "subGroup": "8",
+            "address": "1/1/8",
+            "name": "DALI_FARBTEMPERATUR",
+            "path": "Beleuchtung / WohnEssKuecheTerrasse / DALI_FARBTEMPERATUR",
+            "dataType": "Absolute Farbtemperatur (K)",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "1",
+            "mainGroupName": "Beleuchtung",
+            "middleGroup": "1/1",
+            "middleGroupName": "WohnEssKuecheTerrasse",
+            "subGroup": "9",
+            "address": "1/1/9",
+            "name": "StatusDimmwertKuecheArbeitsplatte",
+            "path": "Beleuchtung / WohnEssKuecheTerrasse / StatusDimmwertKuecheArbeitsplatte",
+            "dataType": "Prozent (0..100%)",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "1",
+            "mainGroupName": "Beleuchtung",
+            "middleGroup": "1/1",
+            "middleGroupName": "WohnEssKuecheTerrasse",
+            "subGroup": "10",
+            "address": "1/1/10",
+            "name": "StatusDimmwertKuecheBlockOben",
+            "path": "Beleuchtung / WohnEssKuecheTerrasse / StatusDimmwertKuecheBlockOben",
+            "dataType": "Prozent (0..100%)",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "1",
+            "mainGroupName": "Beleuchtung",
+            "middleGroup": "1/1",
+            "middleGroupName": "WohnEssKuecheTerrasse",
+            "subGroup": "11",
+            "address": "1/1/11",
+            "name": "KücheSchrankLED-StripeStatusDimmwert",
+            "path": "Beleuchtung / WohnEssKuecheTerrasse / KücheSchrankLED-StripeStatusDimmwert",
+            "dataType": "Prozent (0..100%)",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "1",
+            "mainGroupName": "Beleuchtung",
+            "middleGroup": "1/1",
+            "middleGroupName": "WohnEssKuecheTerrasse",
+            "subGroup": "12",
+            "address": "1/1/12",
+            "name": "Relatives Dimmen",
+            "path": "Beleuchtung / WohnEssKuecheTerrasse / Relatives Dimmen",
+            "dataType": "Dimmer Schritt",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "1",
+            "mainGroupName": "Beleuchtung",
+            "middleGroup": "1/1",
+            "middleGroupName": "WohnEssKuecheTerrasse",
+            "subGroup": "13",
+            "address": "1/1/13",
+            "name": "HUE_Szene_Auslöseadresse",
+            "path": "Beleuchtung / WohnEssKuecheTerrasse / HUE_Szene_Auslöseadresse",
+            "dataType": "",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "1",
+            "mainGroupName": "Beleuchtung",
+            "middleGroup": "1/1",
+            "middleGroupName": "WohnEssKuecheTerrasse",
+            "subGroup": "14",
+            "address": "1/1/14",
+            "name": "LichtSperren",
+            "path": "Beleuchtung / WohnEssKuecheTerrasse / LichtSperren",
+            "dataType": "Schalten",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "1",
+            "mainGroupName": "Beleuchtung",
+            "middleGroup": "1/1",
+            "middleGroupName": "WohnEssKuecheTerrasse",
+            "subGroup": "15",
+            "address": "1/1/15",
+            "name": "LichtSperrenStatus",
+            "path": "Beleuchtung / WohnEssKuecheTerrasse / LichtSperrenStatus",
+            "dataType": "Schalten",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "1",
+            "mainGroupName": "Beleuchtung",
+            "middleGroup": "1/1",
+            "middleGroupName": "WohnEssKuecheTerrasse",
+            "subGroup": "16",
+            "address": "1/1/16",
+            "name": "LichtLogikL1",
+            "path": "Beleuchtung / WohnEssKuecheTerrasse / LichtLogikL1",
+            "dataType": "Schalten",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "1",
+            "mainGroupName": "Beleuchtung",
+            "middleGroup": "1/1",
+            "middleGroupName": "WohnEssKuecheTerrasse",
+            "subGroup": "17",
+            "address": "1/1/17",
+            "name": "LichtLogikL2",
+            "path": "Beleuchtung / WohnEssKuecheTerrasse / LichtLogikL2",
+            "dataType": "Schalten",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "1",
+            "mainGroupName": "Beleuchtung",
+            "middleGroup": "1/1",
+            "middleGroupName": "WohnEssKuecheTerrasse",
+            "subGroup": "18",
+            "address": "1/1/18",
+            "name": "TerrasseLichtDecke",
+            "path": "Beleuchtung / WohnEssKuecheTerrasse / TerrasseLichtDecke",
+            "dataType": "1-Bit",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "1",
+            "mainGroupName": "Beleuchtung",
+            "middleGroup": "1/2",
+            "middleGroupName": "Vorratsraum",
+            "subGroup": "2",
+            "address": "1/2/2",
+            "name": "Led-Streifen",
+            "path": "Beleuchtung / Vorratsraum / Led-Streifen",
+            "dataType": "Schalten",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "1",
+            "mainGroupName": "Beleuchtung",
+            "middleGroup": "1/3",
+            "middleGroupName": "Kinderzimmer",
+            "subGroup": "0",
+            "address": "1/3/0",
+            "name": "HUE_FARBTEMPERATUR",
+            "path": "Beleuchtung / Kinderzimmer / HUE_FARBTEMPERATUR",
+            "dataType": "Pulse",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "1",
+            "mainGroupName": "Beleuchtung",
+            "middleGroup": "1/3",
+            "middleGroupName": "Kinderzimmer",
+            "subGroup": "1",
+            "address": "1/3/1",
+            "name": "Tastsensor_TruePresence_Kopplung",
+            "path": "Beleuchtung / Kinderzimmer / Tastsensor_TruePresence_Kopplung",
+            "dataType": "Schalten",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "1",
+            "mainGroupName": "Beleuchtung",
+            "middleGroup": "1/3",
+            "middleGroupName": "Kinderzimmer",
+            "subGroup": "2",
+            "address": "1/3/2",
+            "name": "Schalten",
+            "path": "Beleuchtung / Kinderzimmer / Schalten",
+            "dataType": "Schalten",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "1",
+            "mainGroupName": "Beleuchtung",
+            "middleGroup": "1/4",
+            "middleGroupName": "BadUnten",
+            "subGroup": "0",
+            "address": "1/4/0",
+            "name": "LichtAnAus",
+            "path": "Beleuchtung / BadUnten / LichtAnAus",
+            "dataType": "Schalten",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "1",
+            "mainGroupName": "Beleuchtung",
+            "middleGroup": "1/5",
+            "middleGroupName": "BadOben",
+            "subGroup": "0",
+            "address": "1/5/0",
+            "name": "Decke",
+            "path": "Beleuchtung / BadOben / Decke",
+            "dataType": "Prozent (0..100%)",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "1",
+            "mainGroupName": "Beleuchtung",
+            "middleGroup": "1/5",
+            "middleGroupName": "BadOben",
+            "subGroup": "1",
+            "address": "1/5/1",
+            "name": "LED-Stripe",
+            "path": "Beleuchtung / BadOben / LED-Stripe",
+            "dataType": "Prozent (0..100%)",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "1",
+            "mainGroupName": "Beleuchtung",
+            "middleGroup": "1/5",
+            "middleGroupName": "BadOben",
+            "subGroup": "2",
+            "address": "1/5/2",
+            "name": "Wand",
+            "path": "Beleuchtung / BadOben / Wand",
+            "dataType": "",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "1",
+            "mainGroupName": "Beleuchtung",
+            "middleGroup": "1/5",
+            "middleGroupName": "BadOben",
+            "subGroup": "4",
+            "address": "1/5/4",
+            "name": "BadOeinAusLED",
+            "path": "Beleuchtung / BadOben / BadOeinAusLED",
+            "dataType": "Schalten",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "1",
+            "mainGroupName": "Beleuchtung",
+            "middleGroup": "1/5",
+            "middleGroupName": "BadOben",
+            "subGroup": "5",
+            "address": "1/5/5",
+            "name": "BadDimmLED",
+            "path": "Beleuchtung / BadOben / BadDimmLED",
+            "dataType": "Prozent (0..100%)",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "1",
+            "mainGroupName": "Beleuchtung",
+            "middleGroup": "1/5",
+            "middleGroupName": "BadOben",
+            "subGroup": "6",
+            "address": "1/5/6",
+            "name": "HelligkeitsregelungSperren",
+            "path": "Beleuchtung / BadOben / HelligkeitsregelungSperren",
+            "dataType": "Schalten",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "1",
+            "mainGroupName": "Beleuchtung",
+            "middleGroup": "1/5",
+            "middleGroupName": "BadOben",
+            "subGroup": "7",
+            "address": "1/5/7",
+            "name": "TriggerHellForXmin",
+            "path": "Beleuchtung / BadOben / TriggerHellForXmin",
+            "dataType": "Dezimalfaktor (0..255)",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": "Die gruppenadresse startet die Zeitschaltuhr, für welchen der Dimmwert ausgesetzt wird."
+        },
+        {
+            "mainGroup": "1",
+            "mainGroupName": "Beleuchtung",
+            "middleGroup": "1/5",
+            "middleGroupName": "BadOben",
+            "subGroup": "8",
+            "address": "1/5/8",
+            "name": "HUE_DIMMWERT",
+            "path": "Beleuchtung / BadOben / HUE_DIMMWERT",
+            "dataType": "Prozent (0..100%)",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "1",
+            "mainGroupName": "Beleuchtung",
+            "middleGroup": "1/5",
+            "middleGroupName": "BadOben",
+            "subGroup": "9",
+            "address": "1/5/9",
+            "name": "HUE_FARBTEMPERATUR",
+            "path": "Beleuchtung / BadOben / HUE_FARBTEMPERATUR",
+            "dataType": "2-Byte vorzeichenlos",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "1",
+            "mainGroupName": "Beleuchtung",
+            "middleGroup": "1/5",
+            "middleGroupName": "BadOben",
+            "subGroup": "10",
+            "address": "1/5/10",
+            "name": "BadOHueDimmDegraded",
+            "path": "Beleuchtung / BadOben / BadOHueDimmDegraded",
+            "dataType": "Prozent (0..100%)",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": "Von LogikEditor auf Appmodule wird der degradierte Wert gesendet, der auf Basis der Logikgruppe BadO generiert wird."
+        },
+        {
+            "mainGroup": "1",
+            "mainGroupName": "Beleuchtung",
+            "middleGroup": "1/6",
+            "middleGroupName": "Atelier",
+            "subGroup": "0",
+            "address": "1/6/0",
+            "name": "Sperren_AT_FLUR_BAD_KiZi",
+            "path": "Beleuchtung / Atelier / Sperren_AT_FLUR_BAD_KiZi",
+            "dataType": "Schalten",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "1",
+            "mainGroupName": "Beleuchtung",
+            "middleGroup": "1/6",
+            "middleGroupName": "Atelier",
+            "subGroup": "1",
+            "address": "1/6/1",
+            "name": "StatusSperren_AT_FLUR_BAD",
+            "path": "Beleuchtung / Atelier / StatusSperren_AT_FLUR_BAD",
+            "dataType": "1-Bit",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "1",
+            "mainGroupName": "Beleuchtung",
+            "middleGroup": "1/6",
+            "middleGroupName": "Atelier",
+            "subGroup": "2",
+            "address": "1/6/2",
+            "name": "StatusLEDBalken",
+            "path": "Beleuchtung / Atelier / StatusLEDBalken",
+            "dataType": "Prozent (0..100%)",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "1",
+            "mainGroupName": "Beleuchtung",
+            "middleGroup": "1/6",
+            "middleGroupName": "Atelier",
+            "subGroup": "4",
+            "address": "1/6/4",
+            "name": "atArbeitsplatzAnAus",
+            "path": "Beleuchtung / Atelier / atArbeitsplatzAnAus",
+            "dataType": "Schalten",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "1",
+            "mainGroupName": "Beleuchtung",
+            "middleGroup": "1/6",
+            "middleGroupName": "Atelier",
+            "subGroup": "5",
+            "address": "1/6/5",
+            "name": "atArbeitsplatzUhrzeitSperre",
+            "path": "Beleuchtung / Atelier / atArbeitsplatzUhrzeitSperre",
+            "dataType": "Schalten",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "1",
+            "mainGroupName": "Beleuchtung",
+            "middleGroup": "1/6",
+            "middleGroupName": "Atelier",
+            "subGroup": "15",
+            "address": "1/6/15",
+            "name": "atBalkenWandEinAus",
+            "path": "Beleuchtung / Atelier / atBalkenWandEinAus",
+            "dataType": "Dimmen Sendeart",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "1",
+            "mainGroupName": "Beleuchtung",
+            "middleGroup": "1/6",
+            "middleGroupName": "Atelier",
+            "subGroup": "16",
+            "address": "1/6/16",
+            "name": "atBalkenWandDimmwert",
+            "path": "Beleuchtung / Atelier / atBalkenWandDimmwert",
+            "dataType": "Prozent (0..100%)",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "1",
+            "mainGroupName": "Beleuchtung",
+            "middleGroup": "1/7",
+            "middleGroupName": "SchlafzimmerEltern",
+            "subGroup": "5",
+            "address": "1/7/5",
+            "name": "Ankeidezimmer",
+            "path": "Beleuchtung / SchlafzimmerEltern / Ankeidezimmer",
+            "dataType": "Schalten",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "1",
+            "mainGroupName": "Beleuchtung",
+            "middleGroup": "1/7",
+            "middleGroupName": "SchlafzimmerEltern",
+            "subGroup": "9",
+            "address": "1/7/9",
+            "name": "RGB-UnterBett-Farbe",
+            "path": "Beleuchtung / SchlafzimmerEltern / RGB-UnterBett-Farbe",
+            "dataType": "3-Byte Farbe RGB",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "1",
+            "mainGroupName": "Beleuchtung",
+            "middleGroup": "1/7",
+            "middleGroupName": "SchlafzimmerEltern",
+            "subGroup": "10",
+            "address": "1/7/10",
+            "name": "RGB-UnterBett-Dimmwert",
+            "path": "Beleuchtung / SchlafzimmerEltern / RGB-UnterBett-Dimmwert",
+            "dataType": "8-Bit vorzeichenlos",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "1",
+            "mainGroupName": "Beleuchtung",
+            "middleGroup": "1/7",
+            "middleGroupName": "SchlafzimmerEltern",
+            "subGroup": "11",
+            "address": "1/7/11",
+            "name": "Balken-Dimmwert",
+            "path": "Beleuchtung / SchlafzimmerEltern / Balken-Dimmwert",
+            "dataType": "Prozent (0..100%)",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "1",
+            "mainGroupName": "Beleuchtung",
+            "middleGroup": "1/7",
+            "middleGroupName": "SchlafzimmerEltern",
+            "subGroup": "12",
+            "address": "1/7/12",
+            "name": "Wandlampe-Dimmwert",
+            "path": "Beleuchtung / SchlafzimmerEltern / Wandlampe-Dimmwert",
+            "dataType": "Prozent (0..100%)",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "1",
+            "mainGroupName": "Beleuchtung",
+            "middleGroup": "1/7",
+            "middleGroupName": "SchlafzimmerEltern",
+            "subGroup": "13",
+            "address": "1/7/13",
+            "name": "Edison-Dimmwert",
+            "path": "Beleuchtung / SchlafzimmerEltern / Edison-Dimmwert",
+            "dataType": "Prozent (0..100%)",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "2",
+            "mainGroupName": "Beschattung",
+            "middleGroup": "2/1",
+            "middleGroupName": "WohnEssKuecheTerrasse",
+            "subGroup": "0",
+            "address": "2/1/0",
+            "name": "Rolladen_WZfnstr_AufAb",
+            "path": "Beschattung / WohnEssKuecheTerrasse / Rolladen_WZfnstr_AufAb",
+            "dataType": "Auf/Ab",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "2",
+            "mainGroupName": "Beschattung",
+            "middleGroup": "2/1",
+            "middleGroupName": "WohnEssKuecheTerrasse",
+            "subGroup": "1",
+            "address": "2/1/1",
+            "name": "Rolladen_WZfnstr_StatusPos",
+            "path": "Beschattung / WohnEssKuecheTerrasse / Rolladen_WZfnstr_StatusPos",
+            "dataType": "Prozent (0..100%)",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "2",
+            "mainGroupName": "Beschattung",
+            "middleGroup": "2/1",
+            "middleGroupName": "WohnEssKuecheTerrasse",
+            "subGroup": "2",
+            "address": "2/1/2",
+            "name": "Rolladen_WZfnstr_Stopp",
+            "path": "Beschattung / WohnEssKuecheTerrasse / Rolladen_WZfnstr_Stopp",
+            "dataType": "Auslöser",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "2",
+            "mainGroupName": "Beschattung",
+            "middleGroup": "2/1",
+            "middleGroupName": "WohnEssKuecheTerrasse",
+            "subGroup": "3",
+            "address": "2/1/3",
+            "name": "Rolladen_WZfnstr_StatusRichtung",
+            "path": "Beschattung / WohnEssKuecheTerrasse / Rolladen_WZfnstr_StatusRichtung",
+            "dataType": "Auf/Ab",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "2",
+            "mainGroupName": "Beschattung",
+            "middleGroup": "2/1",
+            "middleGroupName": "WohnEssKuecheTerrasse",
+            "subGroup": "4",
+            "address": "2/1/4",
+            "name": "Rolladen_WZTrrss_AufAb",
+            "path": "Beschattung / WohnEssKuecheTerrasse / Rolladen_WZTrrss_AufAb",
+            "dataType": "Auf/Ab",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "2",
+            "mainGroupName": "Beschattung",
+            "middleGroup": "2/1",
+            "middleGroupName": "WohnEssKuecheTerrasse",
+            "subGroup": "5",
+            "address": "2/1/5",
+            "name": "Rolladen_WZtrrss_StatusPos",
+            "path": "Beschattung / WohnEssKuecheTerrasse / Rolladen_WZtrrss_StatusPos",
+            "dataType": "Prozent (0..100%)",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "2",
+            "mainGroupName": "Beschattung",
+            "middleGroup": "2/1",
+            "middleGroupName": "WohnEssKuecheTerrasse",
+            "subGroup": "6",
+            "address": "2/1/6",
+            "name": "Rolladen_WZtrrss_Stopp",
+            "path": "Beschattung / WohnEssKuecheTerrasse / Rolladen_WZtrrss_Stopp",
+            "dataType": "Auslöser",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "2",
+            "mainGroupName": "Beschattung",
+            "middleGroup": "2/1",
+            "middleGroupName": "WohnEssKuecheTerrasse",
+            "subGroup": "7",
+            "address": "2/1/7",
+            "name": "Rolladen_WZtrrss_StatusRichtung",
+            "path": "Beschattung / WohnEssKuecheTerrasse / Rolladen_WZtrrss_StatusRichtung",
+            "dataType": "Auf/Ab",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "2",
+            "mainGroupName": "Beschattung",
+            "middleGroup": "2/1",
+            "middleGroupName": "WohnEssKuecheTerrasse",
+            "subGroup": "8",
+            "address": "2/1/8",
+            "name": "Rolladen_Küche_AufAb",
+            "path": "Beschattung / WohnEssKuecheTerrasse / Rolladen_Küche_AufAb",
+            "dataType": "Auf/Ab",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "2",
+            "mainGroupName": "Beschattung",
+            "middleGroup": "2/1",
+            "middleGroupName": "WohnEssKuecheTerrasse",
+            "subGroup": "9",
+            "address": "2/1/9",
+            "name": "Rolladen_Küche_StatusPos",
+            "path": "Beschattung / WohnEssKuecheTerrasse / Rolladen_Küche_StatusPos",
+            "dataType": "Prozent (0..100%)",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "2",
+            "mainGroupName": "Beschattung",
+            "middleGroup": "2/1",
+            "middleGroupName": "WohnEssKuecheTerrasse",
+            "subGroup": "10",
+            "address": "2/1/10",
+            "name": "Rolladen_Küche_Stopp",
+            "path": "Beschattung / WohnEssKuecheTerrasse / Rolladen_Küche_Stopp",
+            "dataType": "Auslöser",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "2",
+            "mainGroupName": "Beschattung",
+            "middleGroup": "2/1",
+            "middleGroupName": "WohnEssKuecheTerrasse",
+            "subGroup": "11",
+            "address": "2/1/11",
+            "name": "Rolladen_Küche_StatusRichtung",
+            "path": "Beschattung / WohnEssKuecheTerrasse / Rolladen_Küche_StatusRichtung",
+            "dataType": "Auf/Ab",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "2",
+            "mainGroupName": "Beschattung",
+            "middleGroup": "2/3",
+            "middleGroupName": "Kinderzimmer",
+            "subGroup": "0",
+            "address": "2/3/0",
+            "name": "RolladenAufAb",
+            "path": "Beschattung / Kinderzimmer / RolladenAufAb",
+            "dataType": "Auf/Ab",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "2",
+            "mainGroupName": "Beschattung",
+            "middleGroup": "2/6",
+            "middleGroupName": "Atelier",
+            "subGroup": "10",
+            "address": "2/6/10",
+            "name": "3.2-3-Etage2.Beschatte-Atelier.R-Rolladen-Rolladen Auf/Ab",
+            "path": "Beschattung / Atelier / 3.2-3-Etage2.Beschatte-Atelier.R-Rolladen-Rolladen Auf/Ab",
+            "dataType": "Auf/Ab",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "2",
+            "mainGroupName": "Beschattung",
+            "middleGroup": "2/6",
+            "middleGroupName": "Atelier",
+            "subGroup": "11",
+            "address": "2/6/11",
+            "name": "3.2-3-Etage2.Beschatte-Atelier.R-Rolladen-Stop",
+            "path": "Beschattung / Atelier / 3.2-3-Etage2.Beschatte-Atelier.R-Rolladen-Stop",
+            "dataType": "1-Bit",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "2",
+            "mainGroupName": "Beschattung",
+            "middleGroup": "2/6",
+            "middleGroupName": "Atelier",
+            "subGroup": "12",
+            "address": "2/6/12",
+            "name": "3.2-3-Etage2.Beschatte-Atelier.R-Rolladen-Status aktuelle Richtung",
+            "path": "Beschattung / Atelier / 3.2-3-Etage2.Beschatte-Atelier.R-Rolladen-Status aktuelle Richtung",
+            "dataType": "",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "2",
+            "mainGroupName": "Beschattung",
+            "middleGroup": "2/6",
+            "middleGroupName": "Atelier",
+            "subGroup": "13",
+            "address": "2/6/13",
+            "name": "3.2-3-Etage2.Beschatte-Atelier.R-Rolladen-Status aktuelle Position",
+            "path": "Beschattung / Atelier / 3.2-3-Etage2.Beschatte-Atelier.R-Rolladen-Status aktuelle Position",
+            "dataType": "",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "2",
+            "mainGroupName": "Beschattung",
+            "middleGroup": "2/6",
+            "middleGroupName": "Atelier",
+            "subGroup": "14",
+            "address": "2/6/14",
+            "name": "3.2-3-Etage2.Beschatte-Atelier.R-Rolladen-Status obere Position",
+            "path": "Beschattung / Atelier / 3.2-3-Etage2.Beschatte-Atelier.R-Rolladen-Status obere Position",
+            "dataType": "",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "2",
+            "mainGroupName": "Beschattung",
+            "middleGroup": "2/6",
+            "middleGroupName": "Atelier",
+            "subGroup": "15",
+            "address": "2/6/15",
+            "name": "3.2-3-Etage2.Beschatte-Atelier.R-Rolladen-Status untere Position",
+            "path": "Beschattung / Atelier / 3.2-3-Etage2.Beschatte-Atelier.R-Rolladen-Status untere Position",
+            "dataType": "",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "2",
+            "mainGroupName": "Beschattung",
+            "middleGroup": "2/6",
+            "middleGroupName": "Atelier",
+            "subGroup": "16",
+            "address": "2/6/16",
+            "name": "3.2-3-Etage2.Beschatte-Atelier.R-Rolladen-Absolute Position",
+            "path": "Beschattung / Atelier / 3.2-3-Etage2.Beschatte-Atelier.R-Rolladen-Absolute Position",
+            "dataType": "",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "2",
+            "mainGroupName": "Beschattung",
+            "middleGroup": "2/7",
+            "middleGroupName": "SchlafzimmerEltern",
+            "subGroup": "0",
+            "address": "2/7/0",
+            "name": "3.2-3-Etage2.Beschatte-SZ.R-Rolladen-Rolladen Auf/Ab",
+            "path": "Beschattung / SchlafzimmerEltern / 3.2-3-Etage2.Beschatte-SZ.R-Rolladen-Rolladen Auf/Ab",
+            "dataType": "Auf/Ab",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "2",
+            "mainGroupName": "Beschattung",
+            "middleGroup": "2/7",
+            "middleGroupName": "SchlafzimmerEltern",
+            "subGroup": "1",
+            "address": "2/7/1",
+            "name": "3.2-3-Etage2.Beschatte-SZ.R-Rolladen-Stop",
+            "path": "Beschattung / SchlafzimmerEltern / 3.2-3-Etage2.Beschatte-SZ.R-Rolladen-Stop",
+            "dataType": "Auf/Ab",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "2",
+            "mainGroupName": "Beschattung",
+            "middleGroup": "2/7",
+            "middleGroupName": "SchlafzimmerEltern",
+            "subGroup": "2",
+            "address": "2/7/2",
+            "name": "3.2-3-Etage2.Beschatte-SZ.R-Rolladen-Status aktuelle Richtung",
+            "path": "Beschattung / SchlafzimmerEltern / 3.2-3-Etage2.Beschatte-SZ.R-Rolladen-Status aktuelle Richtung",
+            "dataType": "",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "2",
+            "mainGroupName": "Beschattung",
+            "middleGroup": "2/7",
+            "middleGroupName": "SchlafzimmerEltern",
+            "subGroup": "3",
+            "address": "2/7/3",
+            "name": "3.2-3-Etage2.Beschatte-SZ.R-Rolladen-Status aktuelle Position",
+            "path": "Beschattung / SchlafzimmerEltern / 3.2-3-Etage2.Beschatte-SZ.R-Rolladen-Status aktuelle Position",
+            "dataType": "",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "2",
+            "mainGroupName": "Beschattung",
+            "middleGroup": "2/7",
+            "middleGroupName": "SchlafzimmerEltern",
+            "subGroup": "4",
+            "address": "2/7/4",
+            "name": "3.2-3-Etage2.Beschatte-SZ.R-Rolladen-Status obere Position",
+            "path": "Beschattung / SchlafzimmerEltern / 3.2-3-Etage2.Beschatte-SZ.R-Rolladen-Status obere Position",
+            "dataType": "",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "2",
+            "mainGroupName": "Beschattung",
+            "middleGroup": "2/7",
+            "middleGroupName": "SchlafzimmerEltern",
+            "subGroup": "5",
+            "address": "2/7/5",
+            "name": "3.2-3-Etage2.Beschatte-SZ.R-Rolladen-Status untere Position",
+            "path": "Beschattung / SchlafzimmerEltern / 3.2-3-Etage2.Beschatte-SZ.R-Rolladen-Status untere Position",
+            "dataType": "",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "2",
+            "mainGroupName": "Beschattung",
+            "middleGroup": "2/7",
+            "middleGroupName": "SchlafzimmerEltern",
+            "subGroup": "6",
+            "address": "2/7/6",
+            "name": "3.2-3-Etage2.Beschatte-SZ.R-Rolladen-Absolute Position",
+            "path": "Beschattung / SchlafzimmerEltern / 3.2-3-Etage2.Beschatte-SZ.R-Rolladen-Absolute Position",
+            "dataType": "",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "3",
+            "mainGroupName": "Beschallung",
+            "middleGroup": "3/1",
+            "middleGroupName": "WohnEssKuecheTerrasse",
+            "subGroup": "0",
+            "address": "3/1/0",
+            "name": "WZstatusRadio",
+            "path": "Beschallung / WohnEssKuecheTerrasse / WZstatusRadio",
+            "dataType": "Schalten",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "3",
+            "mainGroupName": "Beschallung",
+            "middleGroup": "3/1",
+            "middleGroupName": "WohnEssKuecheTerrasse",
+            "subGroup": "1",
+            "address": "3/1/1",
+            "name": "WZwiedergabe",
+            "path": "Beschallung / WohnEssKuecheTerrasse / WZwiedergabe",
+            "dataType": "Schalten",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "3",
+            "mainGroupName": "Beschallung",
+            "middleGroup": "3/1",
+            "middleGroupName": "WohnEssKuecheTerrasse",
+            "subGroup": "2",
+            "address": "3/1/2",
+            "name": "WZwiedergabeSperren",
+            "path": "Beschallung / WohnEssKuecheTerrasse / WZwiedergabeSperren",
+            "dataType": "Schalten",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "3",
+            "mainGroupName": "Beschallung",
+            "middleGroup": "3/5",
+            "middleGroupName": "BadOben",
+            "subGroup": "0",
+            "address": "3/5/0",
+            "name": "SonosEinAus",
+            "path": "Beschallung / BadOben / SonosEinAus",
+            "dataType": "Schalten",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "3",
+            "mainGroupName": "Beschallung",
+            "middleGroup": "3/6",
+            "middleGroupName": "Atelier",
+            "subGroup": "0",
+            "address": "3/6/0",
+            "name": "atStatusRadio",
+            "path": "Beschallung / Atelier / atStatusRadio",
+            "dataType": "Schalten",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "3",
+            "mainGroupName": "Beschallung",
+            "middleGroup": "3/6",
+            "middleGroupName": "Atelier",
+            "subGroup": "1",
+            "address": "3/6/1",
+            "name": "atWiedergabe",
+            "path": "Beschallung / Atelier / atWiedergabe",
+            "dataType": "Schalten",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "3",
+            "mainGroupName": "Beschallung",
+            "middleGroup": "3/6",
+            "middleGroupName": "Atelier",
+            "subGroup": "2",
+            "address": "3/6/2",
+            "name": "atBeschallungStop",
+            "path": "Beschallung / Atelier / atBeschallungStop",
+            "dataType": "Schalten",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "3",
+            "mainGroupName": "Beschallung",
+            "middleGroup": "3/6",
+            "middleGroupName": "Atelier",
+            "subGroup": "3",
+            "address": "3/6/3",
+            "name": "atLautstärke",
+            "path": "Beschallung / Atelier / atLautstärke",
+            "dataType": "Prozent (0..100%)",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "3",
+            "mainGroupName": "Beschallung",
+            "middleGroup": "3/6",
+            "middleGroupName": "Atelier",
+            "subGroup": "4",
+            "address": "3/6/4",
+            "name": "atInterpret",
+            "path": "Beschallung / Atelier / atInterpret",
+            "dataType": "Zeichen (ASCII)",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "3",
+            "mainGroupName": "Beschallung",
+            "middleGroup": "3/6",
+            "middleGroupName": "Atelier",
+            "subGroup": "6",
+            "address": "3/6/6",
+            "name": "atPlaylisteWiedergabe",
+            "path": "Beschallung / Atelier / atPlaylisteWiedergabe",
+            "dataType": "Schalten",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "3",
+            "mainGroupName": "Beschallung",
+            "middleGroup": "3/7",
+            "middleGroupName": "SchlafzimmerEltern",
+            "subGroup": "0",
+            "address": "3/7/0",
+            "name": "Status",
+            "path": "Beschallung / SchlafzimmerEltern / Status",
+            "dataType": "Schalten",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "3",
+            "mainGroupName": "Beschallung",
+            "middleGroup": "3/7",
+            "middleGroupName": "SchlafzimmerEltern",
+            "subGroup": "1",
+            "address": "3/7/1",
+            "name": "Wiedergabe",
+            "path": "Beschallung / SchlafzimmerEltern / Wiedergabe",
+            "dataType": "Schalten",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "3",
+            "mainGroupName": "Beschallung",
+            "middleGroup": "3/7",
+            "middleGroupName": "SchlafzimmerEltern",
+            "subGroup": "2",
+            "address": "3/7/2",
+            "name": "Einschlafroutine",
+            "path": "Beschallung / SchlafzimmerEltern / Einschlafroutine",
+            "dataType": "Schalten",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "4",
+            "mainGroupName": "Heizung",
+            "middleGroup": "4/5",
+            "middleGroupName": "BadOben",
+            "subGroup": "0",
+            "address": "4/5/0",
+            "name": "Temperatur-Istwert",
+            "path": "Heizung / BadOben / Temperatur-Istwert",
+            "dataType": "Temperatur (°C)",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "4",
+            "mainGroupName": "Heizung",
+            "middleGroup": "4/5",
+            "middleGroupName": "BadOben",
+            "subGroup": "1",
+            "address": "4/5/1",
+            "name": "Oberer TemperaturMeldeWert",
+            "path": "Heizung / BadOben / Oberer TemperaturMeldeWert",
+            "dataType": "Alarm",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "4",
+            "mainGroupName": "Heizung",
+            "middleGroup": "4/5",
+            "middleGroupName": "BadOben",
+            "subGroup": "2",
+            "address": "4/5/2",
+            "name": "UntererTemperaturMeldewert",
+            "path": "Heizung / BadOben / UntererTemperaturMeldewert",
+            "dataType": "Alarm",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "4",
+            "mainGroupName": "Heizung",
+            "middleGroup": "4/5",
+            "middleGroupName": "BadOben",
+            "subGroup": "3",
+            "address": "4/5/3",
+            "name": "Sommer_Winter_Umschaltung",
+            "path": "Heizung / BadOben / Sommer_Winter_Umschaltung",
+            "dataType": "Schalten",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "4",
+            "mainGroupName": "Heizung",
+            "middleGroup": "4/5",
+            "middleGroupName": "BadOben",
+            "subGroup": "4",
+            "address": "4/5/4",
+            "name": "HeizungRegelungSperren",
+            "path": "Heizung / BadOben / HeizungRegelungSperren",
+            "dataType": "Freigeben",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "4",
+            "mainGroupName": "Heizung",
+            "middleGroup": "4/5",
+            "middleGroupName": "BadOben",
+            "subGroup": "5",
+            "address": "4/5/5",
+            "name": "Temperatur-Sollwert-Verschiebung",
+            "path": "Heizung / BadOben / Temperatur-Sollwert-Verschiebung",
+            "dataType": "Schritt",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "4",
+            "mainGroupName": "Heizung",
+            "middleGroup": "4/5",
+            "middleGroupName": "BadOben",
+            "subGroup": "6",
+            "address": "4/5/6",
+            "name": "Status-Sollwert-Verschiebung",
+            "path": "Heizung / BadOben / Status-Sollwert-Verschiebung",
+            "dataType": "Temperatur (°C)",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "5",
+            "mainGroupName": "BetriebsdatenErfassung",
+            "middleGroup": "5/2",
+            "middleGroupName": "Vorratsraum",
+            "subGroup": "0",
+            "address": "5/2/0",
+            "name": "DALI Fehler",
+            "path": "BetriebsdatenErfassung / Vorratsraum / DALI Fehler",
+            "dataType": "Alarm",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "5",
+            "mainGroupName": "BetriebsdatenErfassung",
+            "middleGroup": "5/2",
+            "middleGroupName": "Vorratsraum",
+            "subGroup": "1",
+            "address": "5/2/1",
+            "name": "EVG Fehlergrenzwert Prozent",
+            "path": "BetriebsdatenErfassung / Vorratsraum / EVG Fehlergrenzwert Prozent",
+            "dataType": "Zählimpulse (0..255)",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "5",
+            "mainGroupName": "BetriebsdatenErfassung",
+            "middleGroup": "5/2",
+            "middleGroupName": "Vorratsraum",
+            "subGroup": "2",
+            "address": "5/2/2",
+            "name": "Lampenfehler DALI Prozent",
+            "path": "BetriebsdatenErfassung / Vorratsraum / Lampenfehler DALI Prozent",
+            "dataType": "Zählimpulse (0..255)",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "6",
+            "mainGroupName": "KontextErfassung",
+            "middleGroup": "6/0",
+            "middleGroupName": "Wohnung",
+            "subGroup": "0",
+            "address": "6/0/0",
+            "name": "Datum",
+            "path": "KontextErfassung / Wohnung / Datum",
+            "dataType": "Datum",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "6",
+            "mainGroupName": "KontextErfassung",
+            "middleGroup": "6/0",
+            "middleGroupName": "Wohnung",
+            "subGroup": "1",
+            "address": "6/0/1",
+            "name": "Uhrzeit",
+            "path": "KontextErfassung / Wohnung / Uhrzeit",
+            "dataType": "Tageszeit",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "6",
+            "mainGroupName": "KontextErfassung",
+            "middleGroup": "6/0",
+            "middleGroupName": "Wohnung",
+            "subGroup": "2",
+            "address": "6/0/2",
+            "name": "TagNacht",
+            "path": "KontextErfassung / Wohnung / TagNacht",
+            "dataType": "Start/Stop",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "6",
+            "mainGroupName": "KontextErfassung",
+            "middleGroup": "6/0",
+            "middleGroupName": "Wohnung",
+            "subGroup": "3",
+            "address": "6/0/3",
+            "name": "Sonnenaufgang",
+            "path": "KontextErfassung / Wohnung / Sonnenaufgang",
+            "dataType": "",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "6",
+            "mainGroupName": "KontextErfassung",
+            "middleGroup": "6/0",
+            "middleGroupName": "Wohnung",
+            "subGroup": "4",
+            "address": "6/0/4",
+            "name": "Sonnenuntergang",
+            "path": "KontextErfassung / Wohnung / Sonnenuntergang",
+            "dataType": "",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "6",
+            "mainGroupName": "KontextErfassung",
+            "middleGroup": "6/0",
+            "middleGroupName": "Wohnung",
+            "subGroup": "5",
+            "address": "6/0/5",
+            "name": "Helligkeit Wohnzimmer",
+            "path": "KontextErfassung / Wohnung / Helligkeit Wohnzimmer",
+            "dataType": "Lux (Lux)",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "6",
+            "mainGroupName": "KontextErfassung",
+            "middleGroup": "6/0",
+            "middleGroupName": "Wohnung",
+            "subGroup": "6",
+            "address": "6/0/6",
+            "name": "Helligkeit Flur",
+            "path": "KontextErfassung / Wohnung / Helligkeit Flur",
+            "dataType": "Lux (Lux)",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "6",
+            "mainGroupName": "KontextErfassung",
+            "middleGroup": "6/0",
+            "middleGroupName": "Wohnung",
+            "subGroup": "7",
+            "address": "6/0/7",
+            "name": "Helligkeit BadO",
+            "path": "KontextErfassung / Wohnung / Helligkeit BadO",
+            "dataType": "Lux (Lux)",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "6",
+            "mainGroupName": "KontextErfassung",
+            "middleGroup": "6/0",
+            "middleGroupName": "Wohnung",
+            "subGroup": "8",
+            "address": "6/0/8",
+            "name": "Feuchtigkeit BadO",
+            "path": "KontextErfassung / Wohnung / Feuchtigkeit BadO",
+            "dataType": "Feuchtigkeit (%)",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "7",
+            "mainGroupName": "PräsenzMeldung",
+            "middleGroup": "7/0",
+            "middleGroupName": "FlurTreppenhaus",
+            "subGroup": "0",
+            "address": "7/0/0",
+            "name": "Präsenz",
+            "path": "PräsenzMeldung / FlurTreppenhaus / Präsenz",
+            "dataType": "Schalten",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "7",
+            "mainGroupName": "PräsenzMeldung",
+            "middleGroup": "7/1",
+            "middleGroupName": "WohnEssKuecheTerrasse",
+            "subGroup": "0",
+            "address": "7/1/0",
+            "name": "Fensterkontakt Terrasse",
+            "path": "PräsenzMeldung / WohnEssKuecheTerrasse / Fensterkontakt Terrasse",
+            "dataType": "",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "7",
+            "mainGroupName": "PräsenzMeldung",
+            "middleGroup": "7/1",
+            "middleGroupName": "WohnEssKuecheTerrasse",
+            "subGroup": "1",
+            "address": "7/1/1",
+            "name": "Präsenz",
+            "path": "PräsenzMeldung / WohnEssKuecheTerrasse / Präsenz",
+            "dataType": "Schalten",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "7",
+            "mainGroupName": "PräsenzMeldung",
+            "middleGroup": "7/5",
+            "middleGroupName": "BadOben",
+            "subGroup": "0",
+            "address": "7/5/0",
+            "name": "StatusHelligkeitsregelung",
+            "path": "PräsenzMeldung / BadOben / StatusHelligkeitsregelung",
+            "dataType": "Schalten",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "7",
+            "mainGroupName": "PräsenzMeldung",
+            "middleGroup": "7/5",
+            "middleGroupName": "BadOben",
+            "subGroup": "1",
+            "address": "7/5/1",
+            "name": "PräsenzBadO",
+            "path": "PräsenzMeldung / BadOben / PräsenzBadO",
+            "dataType": "Schalten",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "7",
+            "mainGroupName": "PräsenzMeldung",
+            "middleGroup": "7/5",
+            "middleGroupName": "BadOben",
+            "subGroup": "2",
+            "address": "7/5/2",
+            "name": "PräsenzBadOMasterSlave",
+            "path": "PräsenzMeldung / BadOben / PräsenzBadOMasterSlave",
+            "dataType": "Schalten",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "7",
+            "mainGroupName": "PräsenzMeldung",
+            "middleGroup": "7/6",
+            "middleGroupName": "Atelier",
+            "subGroup": "0",
+            "address": "7/6/0",
+            "name": "DynSensitivitätPM",
+            "path": "PräsenzMeldung / Atelier / DynSensitivitätPM",
+            "dataType": "Schalten",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": "oder auch \"Empfindlichkeit\" genannt."
+        },
+        {
+            "mainGroup": "7",
+            "mainGroupName": "PräsenzMeldung",
+            "middleGroup": "7/6",
+            "middleGroupName": "Atelier",
+            "subGroup": "1",
+            "address": "7/6/1",
+            "name": "DynVerstärkungPM",
+            "path": "PräsenzMeldung / Atelier / DynVerstärkungPM",
+            "dataType": "Dezimalfaktor (0..255)",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "7",
+            "mainGroupName": "PräsenzMeldung",
+            "middleGroup": "7/6",
+            "middleGroupName": "Atelier",
+            "subGroup": "2",
+            "address": "7/6/2",
+            "name": "Präsenz",
+            "path": "PräsenzMeldung / Atelier / Präsenz",
+            "dataType": "Schalten",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "7",
+            "mainGroupName": "PräsenzMeldung",
+            "middleGroup": "7/6",
+            "middleGroupName": "Atelier",
+            "subGroup": "3",
+            "address": "7/6/3",
+            "name": "PräsenzSlave",
+            "path": "PräsenzMeldung / Atelier / PräsenzSlave",
+            "dataType": "Schalten",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "7",
+            "mainGroupName": "PräsenzMeldung",
+            "middleGroup": "7/6",
+            "middleGroupName": "Atelier",
+            "subGroup": "4",
+            "address": "7/6/4",
+            "name": "NachlaufzeitBeleuchtung",
+            "path": "PräsenzMeldung / Atelier / NachlaufzeitBeleuchtung",
+            "dataType": "8-Bit vorzeichenlos",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "7",
+            "mainGroupName": "PräsenzMeldung",
+            "middleGroup": "7/7",
+            "middleGroupName": "SchlafzimmerEltern",
+            "subGroup": "0",
+            "address": "7/7/0",
+            "name": "UnterBettPräsenz",
+            "path": "PräsenzMeldung / SchlafzimmerEltern / UnterBettPräsenz",
+            "dataType": "1-Bit",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": ""
+        },
+        {
+            "mainGroup": "9",
+            "mainGroupName": "Betriebsart",
+            "middleGroup": "9/0",
+            "middleGroupName": "Verbraucher_ON_OFF",
+            "subGroup": "0",
+            "address": "9/0/0",
+            "name": "DALI-EVG_ON_OFF",
+            "path": "Betriebsart / Verbraucher_ON_OFF / DALI-EVG_ON_OFF",
+            "dataType": "Schalten",
+            "central": "Nein",
+            "forwardUnfiltered": "Nein",
+            "note": null
+        }
+    ]
+}
