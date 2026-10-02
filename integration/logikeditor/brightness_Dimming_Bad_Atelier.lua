@@ -16,6 +16,10 @@
 
 local EVENING_START_HOUR = 21
 local EVENING_START_MIN = 30
+local EVENING_END_HOUR = 22
+local EVENING_END_MIN = 15
+local NIGHT_END_HOUR = 5
+local NIGHT_END_MIN = 30
 local BAD_EVENING_CAP_PERCENT = 60
 
 local DAY_PERCENT = 100
@@ -91,45 +95,22 @@ local function lerp(a, b, t)
   return a + (b - a) * t
 end
 
-local function next_time_of_day_ts(now_ts, target_hour, target_minute, target_second)
-  if now_ts == nil then
-    return 0
-  end
-
-  local dt = os.date("*t", now_ts)
-  if dt == nil then
-    return 0
-  end
-
-  local base_ts = os.time({
-    year = dt.year,
-    month = dt.month,
-    day = dt.day,
-    hour = target_hour,
-    min = target_minute,
-    sec = target_second,
-  })
-
-  if base_ts == nil then
-    return 0
-  end
-
-  if base_ts <= now_ts then
-    return base_ts + 24 * 3600
-  end
-
-  return base_ts
-end
-
 local function compute_bad_max_percent(hour, minute, second)
   local now_s = sec_of_day(hour, minute, second)
   local evening_start_s = sec_of_day(EVENING_START_HOUR, EVENING_START_MIN, 0)
+  local evening_end_s = sec_of_day(EVENING_END_HOUR, EVENING_END_MIN, 0)
+  local night_end_s = sec_of_day(NIGHT_END_HOUR, NIGHT_END_MIN, 0)
+
+  if now_s >= evening_end_s or now_s < night_end_s then
+    return BAD_EVENING_CAP_PERCENT
+  end
 
   if now_s < evening_start_s then
     return DAY_PERCENT
   end
 
-  return BAD_EVENING_CAP_PERCENT
+  local progress = clamp((now_s - evening_start_s) / (evening_end_s - evening_start_s), 0, 1)
+  return lerp(DAY_PERCENT, BAD_EVENING_CAP_PERCENT, progress)
 end
 
 local function prop_get(props, key, fallback)
@@ -144,28 +125,6 @@ local function prop_set(props, key, value)
   props[STATE_KEY_PREFIX .. key] = value
 end
 
-local function next_evening_unlock_ts(now_ts)
-  local dt = os.date("*t", now_ts)
-  if dt == nil then
-    return 0
-  end
-
-  local base_ts = os.time({
-    year = dt.year,
-    month = dt.month,
-    day = dt.day,
-    hour = EVENING_START_HOUR,
-    min = EVENING_START_MIN,
-    sec = 0,
-  })
-
-  if base_ts == nil then
-    return 0
-  end
-
-  return base_ts + 24 * 3600
-end
-
 local function load_bad_state(props)
   local st = {}
   st.last_sent_percent = as_number(prop_get(props, "last_sent_percent", -1), -1)
@@ -176,8 +135,6 @@ local function load_bad_state(props)
   st.prev_hour = as_number(prop_get(props, "prev_hour", -1), -1)
   st.prev_minute = as_number(prop_get(props, "prev_minute", -1), -1)
   st.prev_second = as_number(prop_get(props, "prev_second", -1), -1)
-  st.lock_active = as_bool(prop_get(props, "lock_active", false))
-  st.lock_until_ts = as_number(prop_get(props, "lock_until_ts", 0), 0)
 
   st.last_sent_percent = clamp(st.last_sent_percent, -1, 100)
   st.last_percent = normalize_percent(st.last_percent, DAY_PERCENT)
@@ -194,8 +151,6 @@ local function save_bad_state(st, props)
   prop_set(props, "prev_hour", st.prev_hour)
   prop_set(props, "prev_minute", st.prev_minute)
   prop_set(props, "prev_second", st.prev_second)
-  prop_set(props, "lock_active", st.lock_active)
-  prop_set(props, "lock_until_ts", st.lock_until_ts)
 end
 
 local in1 = BT:getInValue("in1")
@@ -204,7 +159,6 @@ local in3 = BT:getInValue("in3")
 local in4 = BT:getInValue("in4")
 local in5 = BT:getInValue("in5")
 local in6 = BT:getInValue("in6")
-local now_ts = BT:time()
 
 local manual_on = as_bool(in1)
 local cap_percent = normalize_percent(in2, DAY_PERCENT)
@@ -217,29 +171,10 @@ local props = BT:getProperties()
 local bad_state = load_bad_state(props)
 
 local manual_on_rising = manual_on and (not bad_state.prev_manual_on)
-local manual_on_falling = (not manual_on) and bad_state.prev_manual_on
-
-if manual_on_falling then
-  -- TRLC: R-BAD-LOCK-001/002
-  bad_state.lock_active = true
-  bad_state.lock_until_ts = next_evening_unlock_ts(now_ts)
-  if bad_state.lock_until_ts > 0 then
-    bd_log("Manual OFF erkannt, Automatik gesperrt bis naechster Tag 21:30")
-  else
-    bd_log("Manual OFF erkannt, Automatik gesperrt (kein Zeitstempel verfuegbar)")
-  end
-end
-
-if bad_state.lock_active and bad_state.lock_until_ts > 0 and now_ts ~= nil and now_ts >= bad_state.lock_until_ts then
-  bad_state.lock_active = false
-  bad_state.lock_until_ts = 0
-  bd_log("Sperre aufgehoben, Automatik wieder aktiv")
-end
 
 local bad_time_changed = (hour ~= bad_state.prev_hour) or (minute ~= bad_state.prev_minute) or (second ~= bad_state.prev_second)
 local cap_changed = math.abs(cap_percent - bad_state.prev_cap_percent) >= 0.2
 local month_changed = month ~= bad_state.prev_month
-local night_lock_active = (hour < 5) or (hour == 5 and minute < 30)
 
 -- IN3..IN6 are guaranteed by upstream logic, so desired values are always computed directly.
 local bad_max_percent = compute_bad_max_percent(hour, minute, second)
@@ -249,12 +184,9 @@ bad_desired_percent = normalize_percent(bad_desired_percent, bad_state.last_perc
 
 local bad_send_percent = nil
 
-if manual_on and (not bad_state.lock_active) then
-  if night_lock_active then
-    bad_send_percent = nil
-    bd_log("Nachtmodus aktiv: Beleuchtungssteuerung gesperrt")
+if manual_on then
   -- TRLC: R-SEND-001..005
-  elseif bad_state.last_sent_percent < 0 then
+  if bad_state.last_sent_percent < 0 then
     -- First send uses the computed target directly (no startup pass-through path).
     bad_send_percent = bad_desired_percent
     bd_log("Initialisierung abgeschlossen: out1=" .. tostring(math.floor(bad_desired_percent + 0.5)) .. "%")

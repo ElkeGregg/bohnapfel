@@ -5,16 +5,16 @@ Das Licht kann warm oder kalt sein. Warmes Licht hat einen niedrigen Kelvin-Wert
 ## Die Eingänge und ihre Wirkung
 
 **in1 – Sonnenaufgang aktiv**
-Wenn dieser Eingang "an" ist, startet eine Rampe. Das Licht wird langsam wärmer zu kälter (Nacht-Wert zu Tages-Wert).
+Wenn dieser Eingang "an" wird, startet eine Rampe. Das Licht wird langsam wärmer zu kälter (Nacht-Wert zu Tages-Wert). Wenn der Treppenhaus-Zeitgeber nach 35 Minuten ausgeht, springt das Licht nicht vorzeitig zum Zielwert.
 
 **in2 – Sonnenuntergang aktiv**
-Wenn dieser Eingang "an" ist, startet ebenfalls eine Rampe. Das Licht wird langsam kälter zu wärmer (aktueller Wert zu Nacht-Wert).
+Wenn dieser Eingang "an" wird, startet ebenfalls eine Rampe. Das Licht wird langsam kälter zu wärmer (aktueller Wert zu Nacht-Wert). Wenn der Treppenhaus-Zeitgeber ausgeht, springt das Licht nicht vorzeitig zum Zielwert.
 
-**in3 – Takt-Signal (jede Sekunde)**
-Dieser Eingang lässt die Zeit "vergehen". Er tickt jede Sekunde. Das Skript rechnet die Farbtemperatur aber nur alle 5 Sekunden neu aus. So bleibt die Rampe gleichmäßig, aber es gibt nicht zu viele Bus-Telegramme. Ohne diesen Takt bewegt sich nichts.
+**in3 – Aktuelle Sekunde (0 bis 59)**
+Zusammen mit Stunde (`in9`) und Minute (`in10`) gibt dieser Eingang die aktuelle Uhrzeit an. Das Skript berechnet daraus die verstrichene Rampenzeit. Die Rampe läuft dadurch auch dann zeitlich korrekt weiter, wenn ein Skriptaufruf oder eine Sekunde verpasst wird.
 
 **in4 – Dauer in Minuten**
-Dieser Eingang legt fest, wie lange eine Rampe dauert (zum Beispiel 45 Minuten). Eine längere Dauer macht die Änderung langsamer.
+Dieser Eingang legt fest, wie lange eine Rampe dauert (eingestellt auf 35 Minuten). Eine längere Dauer macht die Änderung langsamer.
 
 **in5 – Präsenz im Flur**
 Wenn hier Bewegung erkannt wird, sendet das Skript sofort den aktuellen Kelvin-Wert. Das passiert sowohl für den zentralen Ausgang als auch für den Flur-Ausgang.
@@ -29,10 +29,10 @@ Wenn die Automatik aktiv ist, folgt das Licht im Ruhezustand (keine Rampe aktiv)
 Dieser Eingang sagt dem Skript, wie das Wetter gerade ist (zum Beispiel "Clear" oder "Rain"). Bei klarem Wetter wird der Tages-Zielwert kälter (mehr Blauanteil). Bei Regen oder Gewitter wird der Tages-Zielwert wärmer.
 
 **in9 – Aktuelle Stunde**
-Dieser Eingang sagt dem Skript, wie spät es gerade ist (Stunde). Er wird gebraucht, um den passenden Kelvin-Wert für die Tageszeit zu berechnen.
+Dieser Eingang liefert die aktuelle Stunde. Zusammen mit Minute (`in10`) und Sekunde (`in3`) wird daraus die verstrichene Rampenzeit berechnet.
 
 **in10 – Aktuelle Minute**
-Dieser Eingang ergänzt die Stunde um die genaue Minute. Zusammen ergeben in9 und in10 die genaue Uhrzeit für die Berechnung.
+Dieser Eingang ergänzt Stunde und Sekunde zur aktuellen Uhrzeit.
 
 ## Wie wirken Stunde und Minute genau?
 
@@ -44,11 +44,11 @@ Aus Stunde und Minute berechnet das Skript, wie hoch die "Sonne" gerade steht. A
 |---|---|
 | in1 | Startet Rampe zu Tages-Wert (wärmer → kälter) |
 | in2 | Startet Rampe zu Nacht-Wert (kälter → wärmer) |
-| in3 | Lässt die Rampe fortschreiten (Neuberechnung alle 5 Sekunden) |
+| in3 | Liefert die aktuelle Sekunde für die Rampenzeit |
 | in4 | Bestimmt die Dauer der Rampe |
 | in5 | Sendet sofort aktuellen Wert (Flur + zentral) |
 | in6 | Sendet sofort aktuellen Wert (zentral) |
 | in7 | Schaltet automatische Tagesverlauf-Anpassung an/aus |
 | in8 | Verschiebt den Tages-Zielwert je nach Wetter |
-| in9 | Liefert die Stunde für die Tageszeit-Berechnung |
-| in10 | Liefert die Minute für die Tageszeit-Berechnung |
+| in9 | Liefert die aktuelle Stunde |
+| in10 | Liefert die aktuelle Minute |
