@@ -11,9 +11,10 @@
 -- in8: weather signal (OpenWeather JSON body or weather main string)
 -- in9: current hour of day (0-23)
 -- in10: current minute of day (0-59)
+-- in11: BadOEinAus switch state (DPT 1.001, 1 bit)
 --
 -- Output mapping
--- out1: absolute color temperature in Kelvin (central MDT DALI object)
+-- out1: absolute color temperature in Kelvin for Hue and DALI lamps
 -- out2: absolute color temperature in Kelvin for Flur trigger updates (GA 1/0/2)
 
 local RESEND_LAST_ON_PRESENCE_IDLE = true
@@ -187,6 +188,7 @@ local function save_state(st, props)
   prop_set(props, "last_weather_day_k", st.last_weather_day_k)
   prop_set(props, "prev_presence_flur", st.prev_presence_flur)
   prop_set(props, "prev_presence_wohn", st.prev_presence_wohn)
+  prop_set(props, "prev_bad_on", st.prev_bad_on)
   prop_set(props, "prev_auto_enabled", st.prev_auto_enabled)
   prop_set(props, "prev_second", st.prev_second)
   prop_set(props, "prev_sunrise_active", st.prev_sunrise_active)
@@ -214,6 +216,7 @@ local function load_state(props)
   st.last_weather_day_k = as_number(prop_get(props, "last_weather_day_k", DAY_KELVIN), DAY_KELVIN)
   st.prev_presence_flur = as_bool(prop_get(props, "prev_presence_flur", false))
   st.prev_presence_wohn = as_bool(prop_get(props, "prev_presence_wohn", false))
+  st.prev_bad_on = as_bool(prop_get(props, "prev_bad_on", false))
   st.prev_auto_enabled = as_bool(prop_get(props, "prev_auto_enabled", false))
   st.prev_second = as_number(prop_get(props, "prev_second", nil), nil)
   st.prev_sunrise_active = as_bool(prop_get(props, "prev_sunrise_active", false))
@@ -302,6 +305,18 @@ local function current_kelvin_for_state(st, elapsed)
   return current_kelvin, progress
 end
 
+local function current_kelvin_for_output(st)
+  if st.mode ~= "idle" then
+    return current_kelvin_for_state(st, st.elapsed_s)
+  end
+
+  local current_kelvin = st.last_k
+  if current_kelvin == nil or current_kelvin == 0 then
+    current_kelvin = st.last_sent_k
+  end
+  return normalize_kelvin(current_kelvin, NIGHT_KELVIN)
+end
+
 local function begin_ramp(st, mode, duration_s, weather_main, weather_day_k, start_time_sod)
   st.mode = mode
   st.duration_s = math.max(60, math.floor(duration_s + 0.5))
@@ -356,12 +371,14 @@ local in7 = BT:getInValue("in7")
 local in8 = BT:getInValue("in8")
 local in9 = BT:getInValue("in9")
 local in10 = BT:getInValue("in10")
+local in11 = BT:getInValue("in11")
 
 local sunrise_active = as_bool(in1)
 local sunset_active = as_bool(in2)
 local current_second = clamp(math.floor(as_number(in3, 0)), 0, 59)
 local presence_flur = as_bool(in5)
 local presence_wohn = as_bool(in6)
+local bad_on = as_bool(in11)
 local auto_enabled_raw = as_bool(in7)
 local auto_enabled = auto_enabled_raw
 if AUTO_ENABLE_ACTIVE_LOW then
@@ -425,11 +442,20 @@ local presence_flur_falling = (not presence_flur) and st.prev_presence_flur
 local presence_wohn_falling = (not presence_wohn) and st.prev_presence_wohn
 local presence_falling = presence_flur_falling or presence_wohn_falling
 local presence_trigger = presence_flur_rising or presence_wohn_rising
+local bad_on_rising = bad_on and (not st.prev_bad_on)
 
 if sunrise_active and sunset_active then
-  tw_log("Konflikt: Sonnenaufgang und Sonnenuntergang gleichzeitig aktiv, keine Ausgabe")
+  tw_log("Konflikt: Sonnenaufgang und Sonnenuntergang gleichzeitig aktiv, normale Ausgabe ausgesetzt")
+  if bad_on_rising then
+    local bad_kelvin = current_kelvin_for_output(st)
+    st.last_k = bad_kelvin
+    st.last_sent_k = bad_kelvin
+    BT:sendValue("out1", bad_kelvin)
+    tw_log("Bad eingeschaltet, globaler Wert trotz Konflikt zwangsweise " .. tostring(bad_kelvin) .. " K gesendet")
+  end
   st.prev_presence_flur = presence_flur
   st.prev_presence_wohn = presence_wohn
+  st.prev_bad_on = bad_on
   st.prev_auto_enabled = auto_enabled
   st.prev_second = current_second
   st.prev_sunrise_active = sunrise_active
@@ -533,7 +559,14 @@ elseif presence_trigger and st.mode == "idle" and RESEND_LAST_ON_PRESENCE_IDLE t
   force_send = true
 end
 
-if send_kelvin ~= nil and (not presence_falling) then
+if bad_on_rising then
+  send_kelvin = current_kelvin_for_output(st)
+  st.last_k = send_kelvin
+  force_send = true
+  tw_log("Bad eingeschaltet, globaler Wert " .. tostring(send_kelvin) .. " K zwangsweise gesendet")
+end
+
+if send_kelvin ~= nil and ((not presence_falling) or bad_on_rising) then
   if force_send or should_send_delta(st.last_sent_k, send_kelvin) then
     BT:sendValue("out1", send_kelvin)
     st.last_sent_k = send_kelvin
@@ -546,6 +579,7 @@ end
 
 st.prev_presence_flur = presence_flur
 st.prev_presence_wohn = presence_wohn
+st.prev_bad_on = bad_on
 st.prev_auto_enabled = auto_enabled
 st.prev_second = current_second
 st.prev_sunrise_active = sunrise_active

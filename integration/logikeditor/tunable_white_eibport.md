@@ -34,6 +34,14 @@ Dieser Eingang liefert die aktuelle Stunde. Zusammen mit Minute (`in10`) und Sek
 **in10 – Aktuelle Minute**
 Dieser Eingang ergänzt Stunde und Sekunde zur aktuellen Uhrzeit.
 
+**in11 – BadOEinAus (DPT 1.001, 1 Bit „Schalten“)**
+Bei jeder Einschaltflanke sendet das Skript den aktuell gültigen Kelvin-Wert erneut über den globalen Ausgang out1. So erhält das Bad beim Einschalten auch dann die Farbtemperatur, wenn sich der Wert seit der letzten Ausgabe nicht geändert hat. Beim Ausschalten wird kein Wert gesendet. out2 bleibt ausschließlich für den Flur.
+
+## Die Ausgänge
+
+- **out1:** Globale Farbtemperatur für Hue- und DALI-Lampen.
+- **out2:** Farbtemperatur ausschließlich für den Flur; die Bad-Einschaltung verändert diesen Ausgang nicht.
+
 ## Wie wirken Stunde und Minute genau?
 
 Aus Stunde und Minute berechnet das Skript, wie hoch die "Sonne" gerade steht. Am Morgen und am Abend ist der Wert niedrig (warmes Licht). Am Mittag ist der Wert hoch (kaltes Licht). Zusätzlich schaut das Skript auf das Datum im System, um die Jahreszeit zu berücksichtigen. Im Sommer ist der Tag länger und heller. Im Winter ist der Tag kürzer und dunkler.
@@ -52,3 +60,4 @@ Aus Stunde und Minute berechnet das Skript, wie hoch die "Sonne" gerade steht. A
 | in8 | Verschiebt den Tages-Zielwert je nach Wetter |
 | in9 | Liefert die aktuelle Stunde |
 | in10 | Liefert die aktuelle Minute |
+| in11 | Sendet bei Bad EIN den aktuellen Kelvin-Wert erneut über out1 |
