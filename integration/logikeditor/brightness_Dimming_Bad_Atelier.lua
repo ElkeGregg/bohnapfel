@@ -1,4 +1,4 @@
--- Evening and night brightness control for BadOben and Atelier-Arbeitsplatz LED-Stripe (DPT 5.001, percent)
+-- Evening and night brightness control for BadOben and Atelier lighting (DPT 5.001, percent)
 --
 -- Input mapping
 -- in1: trigger Bad ein/aus (bool)
@@ -7,12 +7,12 @@
 -- in4: hour (0..23)
 -- in5: minute (0..59)
 -- in6: second (0..59)
--- in7: presence recognition Atelier-Arbeitsplatz LED-Stripe (bool)
--- in8: presence target dim value Atelier-Arbeitsplatz LED-Stripe (percent)
+-- in7: Atelier lighting on/off state (bool)
+-- in8: fixed Atelier dim value for wall lights/beam (percent)
 --
 -- Output mapping
 -- out1: Helligkeitsausgabe BadOben (percent, DPT 5.001)
--- out2: Helligkeitsausgabe Atelier-Arbeitsplatz LED-Stripe (percent, DPT 5.001)
+-- out2: Atelier wall lights/beam dim value (percent, DPT 5.001)
 
 local EVENING_START_HOUR = 21
 local EVENING_START_MIN = 30
@@ -159,6 +159,12 @@ local in3 = BT:getInValue("in3")
 local in4 = BT:getInValue("in4")
 local in5 = BT:getInValue("in5")
 local in6 = BT:getInValue("in6")
+local in7 = BT:getInValue("in7")
+local in8 = BT:getInValue("in8")
+
+if as_bool(in7) then
+  BT:sendValue("out2", normalize_percent(in8, 0))
+end
 
 local manual_on = as_bool(in1)
 local cap_percent = normalize_percent(in2, DAY_PERCENT)
