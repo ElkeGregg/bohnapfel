@@ -37,6 +37,10 @@ Dieser Eingang ergänzt Stunde und Sekunde zur aktuellen Uhrzeit.
 **in11 – BadOEinAus (DPT 1.001, 1 Bit „Schalten“)**
 Bei jeder Einschaltflanke sendet das Skript den aktuell gültigen Kelvin-Wert erneut über den globalen Ausgang out1. So erhält das Bad beim Einschalten auch dann die Farbtemperatur, wenn sich der Wert seit der letzten Ausgabe nicht geändert hat. Beim Ausschalten wird kein Wert gesendet. out2 bleibt ausschließlich für den Flur.
 
+## Verhalten nach einem Deployment
+
+Wenn das Skript nach dem Sonnenaufgang deployed wird, bestimmt es Tag oder Nacht anhand des saisonalen Tageslichtfensters und nicht mehr anhand eines festen Fensters von 08:00 bis 18:00 Uhr. Dadurch startet der spätere Sonnenuntergang vom aktuellen Tageswert und springt nicht auf den Nachtwert. Ist ein Sonnenaufgangs- oder Sonnenuntergangs-Timer beim ersten Lauf bereits aktiv, wird dieser ebenfalls als aktive Rampe übernommen.
+
 ## Die Ausgänge
 
 - **out1:** Globale Farbtemperatur für Hue- und DALI-Lampen.

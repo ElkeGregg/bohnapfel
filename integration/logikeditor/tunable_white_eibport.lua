@@ -290,6 +290,18 @@ local function curve_kelvin_for_time(day_peak_kelvin, hour_in, minute_in)
   return normalize_kelvin(kelvin, day_peak_kelvin)
 end
 
+local function is_daytime(hour_in)
+  local dt = os.date("*t")
+  if dt == nil or dt.yday == nil then
+    return hour_in >= 8 and hour_in < 18
+  end
+
+  local season = 0.5 + 0.5 * math.cos((2 * math.pi * (dt.yday - 172)) / 365)
+  local dawn_hour = 8.0 - 3.0 * season
+  local dusk_hour = 16.0 + 5.0 * season
+  return hour_in >= dawn_hour and hour_in < dusk_hour
+end
+
 local function current_kelvin_for_state(st, elapsed)
   local progress = clamp(elapsed / st.duration_s, 0, 1)
   local curve_strength = CURVE_STRENGTH_SUNSET
@@ -395,6 +407,7 @@ local current_time_sod = current_hour * 60 * 60 + current_minute * 60 + current_
 
 local props = BT:getProperties()
 local st = load_state(props)
+local fresh_state = st.last_sent_k == 0
 
 -- Count distinct second values only for the slower weather-target tracking.
 local tick_event = false
@@ -465,9 +478,9 @@ if sunrise_active and sunset_active then
   BT:exit()
 end
 
-if st.last_sent_k == 0 and st.mode == "idle" and (not sunrise_active) and (not sunset_active) then
+if fresh_state and st.mode == "idle" and (not sunrise_active) and (not sunset_active) then
   if st.day_phase == "" then
-    if current_hour >= 8 and current_hour < 18 then
+    if is_daytime(current_hour + current_minute / 60) then
       st.day_phase = "day"
     else
       st.day_phase = "night"
@@ -483,14 +496,19 @@ if st.last_sent_k == 0 and st.mode == "idle" and (not sunrise_active) and (not s
   tw_log("Initialisierung bei Deployment (" .. st.day_phase .. "), zentral " .. tostring(initial_kelvin) .. " K")
 end
 
-local sunrise_rising = sunrise_active and (not st.prev_sunrise_active)
-local sunset_rising = sunset_active and (not st.prev_sunset_active)
+-- On the first run after deployment, an already active timer is the start
+-- point for this script even if the persisted edge state is stale.
+local sunrise_rising = sunrise_active and ((not st.prev_sunrise_active) or fresh_state)
+local sunset_rising = sunset_active and ((not st.prev_sunset_active) or fresh_state)
 
 if sunrise_rising then
   st.day_phase = "day"
   begin_ramp(st, "sunrise", duration_s, weather_main, st.weather_eff_day_k, current_time_sod)
 elseif sunset_rising then
   st.day_phase = "night"
+  if fresh_state then
+    st.last_k = st.weather_eff_day_k
+  end
   begin_ramp(st, "sunset", duration_s, weather_main, st.weather_eff_day_k, current_time_sod)
 end
 
