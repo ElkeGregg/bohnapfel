@@ -12,6 +12,7 @@
 -- in9: current hour of day (0-23)
 -- in10: current minute of day (0-59)
 -- in11: BadOEinAus switch state (DPT 1.001, 1 bit)
+-- in12: presence trigger studio (Atelier), True Presence light output (1 bit)
 --
 -- Output mapping
 -- out1: absolute color temperature in Kelvin for Hue and DALI lamps
@@ -25,8 +26,8 @@ local DAY_KELVIN = 5600
 local MIN_KELVIN = 2000
 local MAX_KELVIN = 6500
 local STEP_KELVIN = 5
-local CURVE_STRENGTH_SUNRISE = 16
-local CURVE_STRENGTH_SUNSET = 16
+local CURVE_STRENGTH_SUNRISE = 8
+local CURVE_STRENGTH_SUNSET = 8
 local DEFAULT_DURATION_MIN = 45
 local TICK_SECONDS = 1
 local CALC_INTERVAL_SECONDS = 5
@@ -188,6 +189,7 @@ local function save_state(st, props)
   prop_set(props, "last_weather_day_k", st.last_weather_day_k)
   prop_set(props, "prev_presence_flur", st.prev_presence_flur)
   prop_set(props, "prev_presence_wohn", st.prev_presence_wohn)
+  prop_set(props, "prev_presence_atelier", st.prev_presence_atelier)
   prop_set(props, "prev_bad_on", st.prev_bad_on)
   prop_set(props, "prev_auto_enabled", st.prev_auto_enabled)
   prop_set(props, "prev_second", st.prev_second)
@@ -216,6 +218,7 @@ local function load_state(props)
   st.last_weather_day_k = as_number(prop_get(props, "last_weather_day_k", DAY_KELVIN), DAY_KELVIN)
   st.prev_presence_flur = as_bool(prop_get(props, "prev_presence_flur", false))
   st.prev_presence_wohn = as_bool(prop_get(props, "prev_presence_wohn", false))
+  st.prev_presence_atelier = as_bool(prop_get(props, "prev_presence_atelier", false))
   st.prev_bad_on = as_bool(prop_get(props, "prev_bad_on", false))
   st.prev_auto_enabled = as_bool(prop_get(props, "prev_auto_enabled", false))
   st.prev_second = as_number(prop_get(props, "prev_second", nil), nil)
@@ -384,12 +387,14 @@ local in8 = BT:getInValue("in8")
 local in9 = BT:getInValue("in9")
 local in10 = BT:getInValue("in10")
 local in11 = BT:getInValue("in11")
+local in12 = BT:getInValue("in12")
 
 local sunrise_active = as_bool(in1)
 local sunset_active = as_bool(in2)
 local current_second = clamp(math.floor(as_number(in3, 0)), 0, 59)
 local presence_flur = as_bool(in5)
 local presence_wohn = as_bool(in6)
+local presence_atelier = as_bool(in12)
 local bad_on = as_bool(in11)
 local auto_enabled_raw = as_bool(in7)
 local auto_enabled = auto_enabled_raw
@@ -453,8 +458,10 @@ local presence_flur_rising = presence_flur and (not st.prev_presence_flur)
 local presence_wohn_rising = presence_wohn and (not st.prev_presence_wohn)
 local presence_flur_falling = (not presence_flur) and st.prev_presence_flur
 local presence_wohn_falling = (not presence_wohn) and st.prev_presence_wohn
-local presence_falling = presence_flur_falling or presence_wohn_falling
-local presence_trigger = presence_flur_rising or presence_wohn_rising
+local presence_atelier_rising = presence_atelier and (not st.prev_presence_atelier)
+local presence_atelier_falling = (not presence_atelier) and st.prev_presence_atelier
+local presence_falling = presence_flur_falling or presence_wohn_falling or presence_atelier_falling
+local presence_trigger = presence_flur_rising or presence_wohn_rising or presence_atelier_rising
 local bad_on_rising = bad_on and (not st.prev_bad_on)
 
 if sunrise_active and sunset_active then
@@ -468,6 +475,7 @@ if sunrise_active and sunset_active then
   end
   st.prev_presence_flur = presence_flur
   st.prev_presence_wohn = presence_wohn
+  st.prev_presence_atelier = presence_atelier
   st.prev_bad_on = bad_on
   st.prev_auto_enabled = auto_enabled
   st.prev_second = current_second
@@ -535,6 +543,10 @@ if (not presence_falling) and st.mode ~= "idle" then
     send_kelvin = current_kelvin
     force_send = true
     tw_log("Präsenz Wohnzimmer, zentraler Wert " .. tostring(current_kelvin) .. " K gesendet")
+  elseif presence_atelier_rising then
+    send_kelvin = current_kelvin
+    force_send = true
+    tw_log("Präsenz Atelier, zentraler Wert " .. tostring(current_kelvin) .. " K gesendet")
   elseif should_send_delta(st.last_sent_k, current_kelvin) then
     send_kelvin = current_kelvin
     tw_log("Zentral " .. tostring(current_kelvin) .. " K")
@@ -571,6 +583,8 @@ elseif presence_trigger and st.mode == "idle" and RESEND_LAST_ON_PRESENCE_IDLE t
     tw_log("Präsenz Flur ohne aktive Rampe, zentraler und Flur-letzter Wert " .. tostring(resend_kelvin) .. " K gesendet")
   elseif presence_wohn_rising then
     tw_log("Präsenz Wohnzimmer ohne aktive Rampe, zentraler letzter Wert " .. tostring(resend_kelvin) .. " K gesendet")
+  elseif presence_atelier_rising then
+    tw_log("Präsenz Atelier ohne aktive Rampe, zentraler letzter Wert " .. tostring(resend_kelvin) .. " K gesendet")
   end
 
   send_kelvin = resend_kelvin
@@ -597,6 +611,7 @@ end
 
 st.prev_presence_flur = presence_flur
 st.prev_presence_wohn = presence_wohn
+st.prev_presence_atelier = presence_atelier
 st.prev_bad_on = bad_on
 st.prev_auto_enabled = auto_enabled
 st.prev_second = current_second
