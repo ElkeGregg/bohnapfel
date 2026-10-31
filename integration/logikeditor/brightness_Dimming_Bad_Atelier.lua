@@ -164,6 +164,8 @@ local in8 = BT:getInValue("in8")
 
 if as_bool(in7) then
   BT:sendValue("out2", normalize_percent(in8, 0))
+else
+  BT:sendValue("out2", 0)
 end
 
 local manual_on = as_bool(in1)
